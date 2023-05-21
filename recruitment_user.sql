@@ -1,0 +1,1239 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 80028
+ Source Host           : localhost:3306
+ Source Schema         : recruitment_user
+
+ Target Server Type    : MySQL
+ Target Server Version : 80028
+ File Encoding         : 65001
+
+ Date: 04/05/2023 13:09:45
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for sys_major
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_major`;
+CREATE TABLE `sys_major`  (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `parent_id` bigint NOT NULL COMMENT '父id',
+  `major_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '系名或专业名',
+  `is_deleted` tinyint UNSIGNED NOT NULL DEFAULT 0 COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系别表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_major
+-- ----------------------------
+INSERT INTO `sys_major` VALUES (1, 0, '全部', 0, '2023-02-27 19:37:45', '2023-02-27 19:37:45');
+INSERT INTO `sys_major` VALUES (2, 1, '经济与管理系', 0, '2023-02-27 19:38:14', '2023-02-27 19:38:14');
+INSERT INTO `sys_major` VALUES (3, 1, '人文社会科学系', 0, '2023-02-27 19:38:23', '2023-02-27 19:38:23');
+INSERT INTO `sys_major` VALUES (4, 1, '信息与机电工程系', 0, '2023-02-27 19:38:31', '2023-02-27 19:38:31');
+INSERT INTO `sys_major` VALUES (5, 1, '文学艺术系', 0, '2023-02-27 19:38:44', '2023-02-27 19:38:44');
+INSERT INTO `sys_major` VALUES (6, 1, '工程技术系', 0, '2023-02-27 19:38:54', '2023-02-27 19:38:54');
+INSERT INTO `sys_major` VALUES (7, 1, '农业与食品科学系', 0, '2023-02-27 19:39:03', '2023-02-27 19:39:03');
+INSERT INTO `sys_major` VALUES (8, 2, '国际与经济贸易', 0, '2023-02-27 19:40:13', '2023-02-27 19:40:13');
+INSERT INTO `sys_major` VALUES (9, 2, '财务管理', 0, '2023-02-27 19:40:22', '2023-02-27 19:40:22');
+INSERT INTO `sys_major` VALUES (10, 2, '工商管理', 0, '2023-02-27 19:40:36', '2023-02-27 19:40:36');
+INSERT INTO `sys_major` VALUES (11, 2, '农村区域发展', 0, '2023-02-27 19:40:47', '2023-02-27 19:40:47');
+INSERT INTO `sys_major` VALUES (12, 3, '行政管理', 0, '2023-02-27 20:05:59', '2023-02-27 20:05:59');
+INSERT INTO `sys_major` VALUES (13, 3, '旅游管理', 0, '2023-02-27 20:06:03', '2023-02-27 20:06:03');
+INSERT INTO `sys_major` VALUES (14, 3, '旅游管理（中外合作办学项目）', 0, '2023-02-27 20:06:09', '2023-02-27 20:06:09');
+INSERT INTO `sys_major` VALUES (15, 3, '人力资源管理', 0, '2023-02-27 20:06:11', '2023-02-27 20:06:11');
+INSERT INTO `sys_major` VALUES (16, 3, '公共事业管理', 0, '2023-02-27 20:06:43', '2023-02-27 20:06:43');
+INSERT INTO `sys_major` VALUES (17, 3, '英语', 0, '2023-02-27 20:06:46', '2023-02-27 20:06:46');
+INSERT INTO `sys_major` VALUES (18, 4, '计算机科学与技术', 0, '2023-02-27 20:07:17', '2023-02-27 20:07:17');
+INSERT INTO `sys_major` VALUES (19, 4, '电子信息工程', 0, '2023-02-27 20:07:20', '2023-02-27 20:07:20');
+INSERT INTO `sys_major` VALUES (20, 4, '机械制造及其自动化', 0, '2023-02-27 20:07:22', '2023-02-27 20:07:22');
+INSERT INTO `sys_major` VALUES (21, 4, '电气工程及其自动化', 0, '2023-02-27 20:07:25', '2023-02-27 20:07:25');
+INSERT INTO `sys_major` VALUES (22, 4, '电子科学与技术', 0, '2023-02-27 20:09:34', '2023-02-27 20:09:34');
+INSERT INTO `sys_major` VALUES (23, 5, '广告学', 0, '2023-02-27 20:09:48', '2023-02-27 20:09:48');
+INSERT INTO `sys_major` VALUES (24, 5, '园林', 0, '2023-02-27 20:09:51', '2023-02-27 20:09:51');
+INSERT INTO `sys_major` VALUES (25, 5, '视觉传达设计', 0, '2023-02-27 20:09:53', '2023-02-27 20:09:53');
+INSERT INTO `sys_major` VALUES (26, 5, '视觉传达设计', 0, '2023-02-27 20:10:07', '2023-02-27 20:10:07');
+INSERT INTO `sys_major` VALUES (27, 5, '产品设计', 0, '2023-02-27 20:10:55', '2023-02-27 20:10:55');
+INSERT INTO `sys_major` VALUES (28, 5, '动画', 0, '2023-02-27 20:10:59', '2023-02-27 20:10:59');
+INSERT INTO `sys_major` VALUES (29, 6, '土木工程', 0, '2023-02-27 20:11:14', '2023-02-27 20:11:14');
+INSERT INTO `sys_major` VALUES (30, 6, '工程管理', 0, '2023-02-27 20:11:16', '2023-02-27 20:11:16');
+INSERT INTO `sys_major` VALUES (31, 6, '化学工程与工艺', 0, '2023-02-27 20:11:18', '2023-02-27 20:11:18');
+INSERT INTO `sys_major` VALUES (32, 6, '交通工程', 0, '2023-02-27 20:11:39', '2023-02-27 20:11:39');
+INSERT INTO `sys_major` VALUES (33, 7, '动物医学', 0, '2023-02-27 20:12:08', '2023-02-27 20:12:08');
+INSERT INTO `sys_major` VALUES (34, 7, '农学', 0, '2023-02-27 20:12:11', '2023-02-27 20:12:11');
+INSERT INTO `sys_major` VALUES (35, 7, '林学', 0, '2023-02-27 20:12:13', '2023-02-27 20:12:13');
+INSERT INTO `sys_major` VALUES (36, 7, '食品科学与工程', 0, '2023-02-27 20:12:41', '2023-02-27 20:12:41');
+INSERT INTO `sys_major` VALUES (37, 7, '食品质量与安全', 0, '2023-02-27 20:12:45', '2023-02-27 20:12:45');
+INSERT INTO `sys_major` VALUES (63, 2, '爱是', 1, '2023-04-02 20:51:41', '2023-04-02 20:51:41');
+INSERT INTO `sys_major` VALUES (64, 2, '测试哦', 1, '2023-04-02 20:53:11', '2023-04-02 20:53:11');
+INSERT INTO `sys_major` VALUES (65, 2, '测试股aaa', 1, '2023-04-02 20:54:20', '2023-04-02 20:54:20');
+INSERT INTO `sys_major` VALUES (66, 2, '测试股', 1, '2023-04-02 21:03:34', '2023-04-02 21:03:34');
+INSERT INTO `sys_major` VALUES (67, 3, '爱是zz', 1, '2023-04-02 21:03:50', '2023-04-02 21:03:50');
+INSERT INTO `sys_major` VALUES (68, 3, '傲视', 1, '2023-04-02 21:04:23', '2023-04-02 21:04:23');
+INSERT INTO `sys_major` VALUES (69, 2, '测试股aaaaa', 1, '2023-04-02 21:20:22', '2023-04-02 21:20:22');
+INSERT INTO `sys_major` VALUES (70, 2, 'aszxcxzc12', 1, '2023-04-02 21:23:50', '2023-04-02 21:23:50');
+INSERT INTO `sys_major` VALUES (71, 2, '测试股aaa', 1, '2023-04-02 21:27:18', '2023-04-02 21:27:18');
+INSERT INTO `sys_major` VALUES (72, 2, 'aszxcxzc12sd', 1, '2023-04-02 21:33:30', '2023-04-02 21:33:30');
+INSERT INTO `sys_major` VALUES (73, 2, '测试股aaa', 1, '2023-04-02 21:37:26', '2023-04-02 21:37:26');
+INSERT INTO `sys_major` VALUES (74, 1, '测试股', 1, '2023-04-04 15:40:19', '2023-04-04 15:40:19');
+INSERT INTO `sys_major` VALUES (75, 2, 'zxcz', 1, '2023-04-29 20:53:13', '2023-04-29 20:53:13');
+INSERT INTO `sys_major` VALUES (76, 1, 'zxz', 1, '2023-04-29 20:53:16', '2023-04-29 20:53:16');
+INSERT INTO `sys_major` VALUES (77, 76, 'xcz', 1, '2023-04-29 20:53:25', '2023-04-29 20:53:25');
+
+-- ----------------------------
+-- Table structure for sys_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_permission`;
+CREATE TABLE `sys_permission`  (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `parent_id` bigint NOT NULL COMMENT '所属上级',
+  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '名称',
+  `permission` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '权限值',
+  `path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '访问路径',
+  `icon` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '图标',
+  `is_deleted` tinyint UNSIGNED NOT NULL DEFAULT 0 COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_pid`(`parent_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 130 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '权限' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_permission
+-- ----------------------------
+INSERT INTO `sys_permission` VALUES (1, 0, '全部菜单', NULL, NULL, NULL, 0, '2023-02-22 09:43:06', '2023-02-22 09:43:06');
+INSERT INTO `sys_permission` VALUES (2, 1, '系统管理', '', '/admin/system', 'ant-design:setting-outlined', 0, '2023-02-22 09:43:30', '2023-02-22 09:43:30');
+INSERT INTO `sys_permission` VALUES (3, 1, '我的公司', '', '/admin/company', 'ep:office-building', 0, '2023-02-22 09:44:24', '2023-02-22 09:44:24');
+INSERT INTO `sys_permission` VALUES (4, 2, '用户管理', NULL, '/admin/system/user', 'ant-design:user-outlined', 0, '2023-02-22 09:46:15', '2023-02-22 09:46:15');
+INSERT INTO `sys_permission` VALUES (5, 2, '公司管理', NULL, '/admin/system/company', 'bi:building', 0, '2023-02-22 09:46:49', '2023-02-22 09:46:49');
+INSERT INTO `sys_permission` VALUES (7, 2, '学生管理', NULL, '/admin/system/student', 'ph:student', 0, '2023-02-22 09:48:07', '2023-02-22 09:48:07');
+INSERT INTO `sys_permission` VALUES (8, 3, '公司详情', NULL, '/admin/company/detail', 'bx:detail', 0, '2023-03-24 10:38:52', '2023-03-24 10:38:52');
+INSERT INTO `sys_permission` VALUES (9, 3, 'HR管理', NULL, '/admin/company/hr', 'clarity:certificate-outline-badged', 0, '2023-03-24 10:39:16', '2023-03-24 10:39:16');
+INSERT INTO `sys_permission` VALUES (10, 3, '岗位管理', NULL, '/admin/company/job', 'healthicons:female-sex-worker-outline', 0, '2023-03-24 10:39:59', '2023-03-24 10:39:59');
+INSERT INTO `sys_permission` VALUES (11, 1, '社区管理', NULL, '/admin/community', 'majesticons:community-line', 0, '2023-03-31 20:46:47', '2023-03-31 20:46:47');
+INSERT INTO `sys_permission` VALUES (12, 11, '话题管理', NULL, '/admin/community/topic', 'icon-park-outline:topic', 0, '2023-03-31 20:57:58', '2023-03-31 20:57:58');
+INSERT INTO `sys_permission` VALUES (13, 11, '文章管理', NULL, '/admin/community/article', 'ic:outline-article', 0, '2023-03-31 21:04:59', '2023-03-31 21:04:59');
+INSERT INTO `sys_permission` VALUES (14, 11, '评论管理', NULL, '/admin/community/comment', 'mdi-comment-processing-outline', 0, '2023-03-31 20:56:52', '2023-03-31 20:56:52');
+INSERT INTO `sys_permission` VALUES (15, 2, '专业管理', NULL, '/admin/system/major', 'ep:postcard', 0, '2023-04-02 14:02:22', '2023-04-02 14:02:22');
+INSERT INTO `sys_permission` VALUES (16, 2, '轮播图管理', NULL, '/admin/system/banner', 'bi:image-fill', 0, '2023-04-14 22:51:19', '2023-04-14 22:51:19');
+INSERT INTO `sys_permission` VALUES (17, 3, '上传轮播图', NULL, '/admin/company/banner', 'fa-regular:images', 0, '2023-04-14 22:56:48', '2023-04-14 22:56:48');
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role`  (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '角色id',
+  `role_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '角色名称',
+  `desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '描述',
+  `is_deleted` tinyint UNSIGNED NOT NULL DEFAULT 0 COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1196300996034977795 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES (1, 'admin', '超级管理员', 0, '2023-03-27 15:54:08', '2023-03-27 15:54:08');
+INSERT INTO `sys_role` VALUES (2, 'teacher', '老师', 0, '2019-11-11 13:09:45', '2019-11-18 10:25:44');
+INSERT INTO `sys_role` VALUES (3, 'student', '学生', 0, '2019-11-18 13:35:58', '2019-11-18 13:35:58');
+INSERT INTO `sys_role` VALUES (4, 'boss', '公司老板', 0, '2023-02-21 22:44:48', '2023-02-21 22:44:48');
+INSERT INTO `sys_role` VALUES (5, 'hr', 'hr', 0, '2023-02-21 22:46:01', '2023-02-21 22:46:01');
+
+-- ----------------------------
+-- Table structure for sys_role_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role_permission`;
+CREATE TABLE `sys_role_permission`  (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `role_id` bigint NOT NULL,
+  `permission_id` bigint NOT NULL,
+  `is_deleted` tinyint UNSIGNED NOT NULL DEFAULT 0 COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_role_id`(`role_id`) USING BTREE,
+  INDEX `idx_permission_id`(`permission_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 124 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '角色权限' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_role_permission
+-- ----------------------------
+INSERT INTO `sys_role_permission` VALUES (92, 1, 1, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (93, 1, 2, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (94, 1, 3, 1, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (95, 1, 4, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (96, 1, 5, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (97, 1, 7, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (98, 1, 8, 1, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (99, 1, 9, 1, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (100, 1, 10, 1, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (101, 1, 11, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (102, 1, 12, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (103, 1, 13, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (104, 1, 14, 0, '2023-03-31 21:09:18', '2023-03-31 21:09:18');
+INSERT INTO `sys_role_permission` VALUES (105, 2, 1, 0, '2023-03-31 21:09:53', '2023-03-31 21:09:53');
+INSERT INTO `sys_role_permission` VALUES (106, 2, 2, 0, '2023-03-31 21:09:53', '2023-03-31 21:09:53');
+INSERT INTO `sys_role_permission` VALUES (107, 2, 7, 0, '2023-03-31 21:09:53', '2023-03-31 21:09:53');
+INSERT INTO `sys_role_permission` VALUES (113, 4, 1, 0, '2023-03-31 21:11:13', '2023-03-31 21:11:13');
+INSERT INTO `sys_role_permission` VALUES (114, 4, 3, 0, '2023-03-31 21:11:13', '2023-03-31 21:11:13');
+INSERT INTO `sys_role_permission` VALUES (115, 4, 8, 0, '2023-03-31 21:11:13', '2023-03-31 21:11:13');
+INSERT INTO `sys_role_permission` VALUES (116, 4, 9, 0, '2023-03-31 21:11:13', '2023-03-31 21:11:13');
+INSERT INTO `sys_role_permission` VALUES (117, 4, 10, 0, '2023-03-31 21:11:13', '2023-03-31 21:11:13');
+INSERT INTO `sys_role_permission` VALUES (118, 5, 1, 0, '2023-03-31 21:11:37', '2023-03-31 21:11:37');
+INSERT INTO `sys_role_permission` VALUES (119, 5, 3, 0, '2023-03-31 21:11:37', '2023-03-31 21:11:37');
+INSERT INTO `sys_role_permission` VALUES (120, 5, 10, 0, '2023-03-31 21:11:37', '2023-03-31 21:11:37');
+INSERT INTO `sys_role_permission` VALUES (121, 1, 15, 0, '2023-04-02 14:08:03', '2023-04-02 14:08:03');
+INSERT INTO `sys_role_permission` VALUES (122, 1, 16, 0, '2023-04-14 22:52:44', '2023-04-14 22:52:44');
+INSERT INTO `sys_role_permission` VALUES (123, 4, 17, 0, '2023-04-14 22:57:08', '2023-04-14 22:57:08');
+
+-- ----------------------------
+-- Table structure for sys_user
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user`  (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `account` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '帐号',
+  `telephone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '手机号码',
+  `email` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '邮箱',
+  `user_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户真实姓名',
+  `password` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '密码',
+  `nick_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '昵称',
+  `active` tinyint NULL DEFAULT 0 COMMENT '是否启用',
+  `company_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '公司id',
+  `company_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '公司名',
+  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '公司审核失败原因',
+  `status` bigint NULL DEFAULT NULL COMMENT '状态',
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户头像',
+  `is_deleted` tinyint UNSIGNED NOT NULL DEFAULT 0 COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `uk_username`(`account`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1274 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user
+-- ----------------------------
+INSERT INTO `sys_user` VALUES (1, 'admin', '17396555723', '1024983409@qq.com', '张伟文', '$2a$10$EaauwY7LIsle.XgDxYAbBOCgnZiaB4zXntv7dS2POCSX5fyHp80Fi', 'admin', NULL, NULL, NULL, NULL, NULL, 'https://hqk10.oss-cn-hangzhou.aliyuncs.com/2023/04/24/1eab997bb8434b61ad08c82b8886e5a5file-1682297841925', 0, '2023-02-27 19:33:05', '2023-02-27 19:33:05');
+INSERT INTO `sys_user` VALUES (948, '65401744', '17396555720', '1024983409@qq.com', '邓芳', '$2a$10$.Uimq3NJS4WaB/aiFqjhROvhzF2h2Cp2VA3brTS/0nu9lHgzp86Ze', '用户_f6e6邓芳', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (949, '1128609', NULL, NULL, '许芳', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_3b97f5d5cdd24da28b7cdce82df7bfaa', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (950, '99163352', NULL, NULL, '常磊', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_18ba065670c745e59ce747ba15cedb47', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (951, '62161093', NULL, NULL, '顾勇', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_027085e8bdee446b855830e18b4ed569', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (952, '41429055', NULL, NULL, '于娜', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_f48727bd24dd4357bc297ca22d018705', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (953, '68730195', NULL, NULL, '康磊', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_db22a47fcba840af9c70f2bb62941f12', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (954, '1215170', NULL, NULL, '孟娟', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_9af1e115b98844d7882782d9be71ee52', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (955, '54082116', NULL, NULL, '魏军', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_233a4791ed3e41ce865e72cb2b3cb96b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (956, '40941210', NULL, NULL, '汤芳', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_697a326ef53048c78e91d26daded2b3e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (957, '61040230', NULL, NULL, '于平', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_90f80e0b289a4a32afb3bd4e539c0e77', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (958, '92608201', NULL, NULL, '张强', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_a82e4ed5654b4bbab6d7ab23af63642d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (959, '14528804', NULL, NULL, '毛磊', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_7cfa34d7fcef4eb3818f9bb67853dd68', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (960, '5074841', NULL, NULL, '夏静', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_fd2b100197e14dd8a4d702649d5ae79f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (961, '26041035', NULL, NULL, '唐丽', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_4795e348318a420fac3e35228a503a18', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (962, '67969252', NULL, NULL, '刘磊', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_33651679e0254e5d838afd5b1b28ec88', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (963, '46532153', NULL, NULL, '史强', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_ac5a5ade9a0b49598689c2d8cb69a626', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (964, '36219496', NULL, NULL, '蔡娟', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_8d261f66bad34006a2f004bf6b4afc27', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (965, '4883694', NULL, NULL, '孟平', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_1267ceba9f7a4f16bbe5b906121d0739', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (966, '37363303', NULL, NULL, '段强', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_c98c3ca1fc764b8c9be43ea069d63edf', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (967, '82468990', NULL, NULL, '卢军', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_8f0cc81efa254d899883754f0476313e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (968, '70935741', NULL, NULL, '袁芳', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_4e46ddbfa03a487ab33366bc23455229', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (969, '47255971', NULL, NULL, '雷娜', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_40843509902c4e4792fac48f151b4933', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (970, '72196614', NULL, NULL, '贺涛', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_fdbff99b0d834a4bb92d312d353c82c1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (971, '52956081', NULL, NULL, '萧平', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_8fb5671df1b94c728c8fc71f8af2b5ca', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (972, '83828359', NULL, NULL, '蔡霞', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_d69457a6ccae442ab0898d5545be07cd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (973, '9548151', NULL, NULL, '郝秀兰', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_d609fdbe3e1245848b5e7a0e2f1c68c3', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (974, '68092717', NULL, NULL, '汪磊', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_f4e15780cdae4bc484515c2da84d98b4', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (975, '93024205', NULL, NULL, '程伟', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_1067521f4066442984d0856b75015d5b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (976, '25430949', NULL, NULL, '赵艳', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_832035ad09064f95a687dfd4b1793b81', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (977, '630493', NULL, NULL, '蔡磊', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_c8b9323d0976418b8c9e446ee90ed549', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (978, '74664330', NULL, NULL, '江娜', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_752644b708ff4e7e94b935a540d9b6e3', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (979, '42902806', NULL, NULL, '黎静', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_e250e25622c9487fa5c61355353bf8f2', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (980, '47413163', NULL, NULL, '雷涛', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_e7300796a0884422ab1ad1331f06dcb0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (981, '32839472', NULL, NULL, '魏超', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_b06802be83a5408189126614325a9dcd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (982, '6335149', NULL, NULL, '曾伟', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_8cc0d4f1c72940eb96bd23f7d051ac84', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (983, '12250585', NULL, NULL, '雷平', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_b854ecfc1c7d41a3af337998138bbd92', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (984, '38056764', NULL, NULL, '雷杰', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_3c0dc5b162ac40dfbb8fdc5d586086c3', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (985, '96162769', NULL, NULL, '萧敏', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_43f85caad16c418882819e6128ab376e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (986, '72417485', NULL, NULL, '张娟', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_010e768992ad4a0996d1602f71aa4fa6', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (987, '87680039', NULL, NULL, '唐洋', '$2a$10$HXUgZ1LurIQUNEX74g0/KOCLBQO2m1.fkc34SMDpdm0yj0DXk9Qb2', '用户_50f25b61e1d94408a19a515146667106', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user` VALUES (988, '497573', NULL, NULL, '万平', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_6d6af753e6c745a99789448f0ec028c9', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (989, '39418070', NULL, NULL, '白娟', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_5f0295a10b694a9c9de9ec915fdad504', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (990, '34437151', NULL, NULL, '孔平', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_fc7cc128a5124c30ac1fd343362fd5a6', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (991, '55563786', NULL, NULL, '方洋', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_12f08dbb338144ee8a39743d8ef0e930', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (992, '9377998', NULL, NULL, '丁艳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_db0723aeee1d4fe98c9367c73f4cf731', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (993, '89949442', NULL, NULL, '郑静', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_3e31294275694939a62415f3e3bfc73d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (994, '38915618', NULL, NULL, '秦磊', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_462691c58e0d497aa73f6129516b49c0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (995, '71976069', NULL, NULL, '锺刚', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_5b50183d909e47dcbccd718f9f972d8f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (996, '96177953', NULL, NULL, '赖芳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_83ad50f8bd934cd2901764f1b10797d4', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (997, '32297345', NULL, NULL, '江桂英', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_43ce7f7ef20545b0bd98bb717b1bc07d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (998, '31737154', NULL, NULL, '吕娟', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_a337cb8bd5aa4c9da640ba7a818135e2', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (999, '81226140', NULL, NULL, '尹娜', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_5d1ff6ca588b4e1b82857882c0e3340d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1000, '62269195', NULL, NULL, '卢芳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_b03a8bcbbdc0417f9f8208ad5db852dd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1001, '2089845', NULL, NULL, '雷娟', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_a4fa0f1a094e4840b8b2236c7795e72f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1002, '20213854', NULL, NULL, '龚勇', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_3c2fae3e37764a938936a4dfaeb6a628', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1003, '5278768', NULL, NULL, '杜杰', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_30fada9d87474cad8601d6593d8d499c', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1004, '54389233', NULL, NULL, '阎艳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_9bde83bddd3c4d258bb48e7ed945784f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1005, '57028088', NULL, NULL, '程芳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_bca08ec13b1c4003aa9973e9a8ab90ae', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1006, '73485653', NULL, NULL, '崔勇', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_24c7c32aa3db4f6ca4b8d59e28eedfc7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1007, '38551324', NULL, NULL, '孔敏', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_d2a8f731127c4ecc97d72ea006025223', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1008, '92788005', NULL, NULL, '钱强', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_53f84db6141043a2bb14da1924eb1026', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1009, '20284013', NULL, NULL, '于霞', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_6c6f74fb28994d52b46899e3c688aa15', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1010, '9477376', NULL, NULL, '锺艳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_5473d2b523ea496c8ac32f19a85b7757', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1011, '1835607', NULL, NULL, '方秀英', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_ad49ae515f6a4b70b4c521303a6c70df', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1012, '28928219', NULL, NULL, '锺娟', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_9ba6ba23fbb04436b64ba020b6516105', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1013, '33007715', NULL, NULL, '杜洋', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_0f4fc5c8d3b843958d2144a5c24d6df9', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1014, '71315681', NULL, NULL, '蔡勇', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_c176f7f08f53499b8f46911d2bc15d8b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1015, '18751826', NULL, NULL, '尹明', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_197de127e02d46738ea9c43150201ca5', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1016, '8318338', NULL, NULL, '秦磊', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_5e5e8b5011c1422084d6e69995a27f01', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1017, '90284658', NULL, NULL, '蔡艳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_d0893f77e5f8497ea423972a37359d11', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1018, '69549480', NULL, NULL, '汤杰', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_36b3dd009cf44ddeae34abbcee256c70', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1019, '87242126', NULL, NULL, '江秀兰', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_17c76a8fdadc41828847808d90ad666e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1020, '349172', NULL, NULL, '蔡勇', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_1fe688299132430b98cae54529b0fff7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1021, '35737422', NULL, NULL, '白娜', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_e9e9fa74c74841c79a7193555390588a', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1022, '90527138', NULL, NULL, '薛强', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_7ae6e6859bb841b39b861463099a6d37', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1023, '92814377', NULL, NULL, '冯明', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_51765a77a2d64b338b8acd3f32d88fff', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1024, '12284236', NULL, NULL, '熊涛', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_8f0a55013f744c1aac90e050bcb7c8d9', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1025, '29509347', NULL, NULL, '余涛', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_019886a90d014be799f26e27a1c5c15e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1026, '96287978', NULL, NULL, '石强', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_64d05412682b4442bc1249c3e72fd7bd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1027, '47449319', NULL, NULL, '方秀兰', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_353fa5e2d02c481eabd75247e5a86c61', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1028, '25571916', NULL, NULL, '曹军', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_31af54034b144f01ac742c4a611eafc0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1029, '29347957', NULL, NULL, '余强', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_138553db718b4bb1941fe7418dcd124f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1030, '58335112', NULL, NULL, '萧艳', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_b550aba838ee41b0848100080bce4ec9', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1031, '10990393', NULL, NULL, '万军', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_a045911257af448390e0f5b3aa5610e9', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1032, '26159589', NULL, NULL, '邓娜', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_6e077774da1d42e28a91b18e76341fe1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1033, '69104043', NULL, NULL, '邓平', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_5b838759b3e14c49be7bba90d199be7b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1034, '89687089', NULL, NULL, '姜霞', '$2a$10$x89CgKYgppB76/8AjAyF1.wd9IDu8h1w7fuEitwrt0gJSGBicDG8G', '用户_fe12478f7f1d45ed94cb81e4102eec50', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user` VALUES (1035, '44081649', NULL, NULL, '雷涛', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_6ac92d5ef2a64311871023780d66375f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1036, '47015016', NULL, NULL, '龙超', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_600a63022bf64e3f873a572025c70b2a', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1037, '80616134', NULL, NULL, '毛洋', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_47b32ec1b858408889e3d4581fb24c1d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1038, '68008857', NULL, NULL, '姜磊', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_e4407e7e4d9647c8b5a2d30889100216', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1039, '20791758', NULL, NULL, '武艳', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_48044fcd60b24731add7f5858dd1d443', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1040, '50273532', NULL, NULL, '孔丽', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_9378a289bf13447086e410c4685b271e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1041, '5090076', NULL, NULL, '崔涛', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_68401302f538425e8d2171e9b2cd98ae', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1042, '26193664', NULL, NULL, '沈洋', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_cc780e0f9fd247cc8fbfd919105755ad', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1043, '38349975', NULL, NULL, '杨刚', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_8cc0860db7164d9baf09990352ee3388', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1044, '48189545', NULL, NULL, '崔伟', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_3bc4a0391d014d539055a9a933e8fc43', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1045, '27053110', NULL, NULL, '余娜', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_1c1adbb29a46442baeacd6f6b736f3e6', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1046, '80928585', NULL, NULL, '廖杰', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_87844303e0b64b5faba9ce1838613926', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1047, '13446010', NULL, NULL, '尹娟', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_8100bd2c02f442f5ad92ecb2e39d4c48', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1048, '25664880', NULL, NULL, '李霞', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_713937d74c1d49f3bab042a4de795bea', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1049, '88133224', NULL, NULL, '阎杰', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_19b930f23faf433f8b7e50318ff42fc8', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1050, '14018103', NULL, NULL, '戴静', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_f37a5bd5b5304f8e97c274aa7db59c06', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1051, '42293745', NULL, NULL, '尹杰', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_7262a3edd3284c5e8651f33917a520b0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1052, '53298896', NULL, NULL, '卢洋', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_d827e69ce9ca4fd48039a12837c8154e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1053, '15977008', NULL, NULL, '高刚', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_ed610434cee5486abbe6cb373c41d90c', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1054, '45432921', NULL, NULL, '钱勇', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_c8289ab932914b01a6d1a2a5931cf422', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1055, '27997421', NULL, NULL, '孔秀兰', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_a6667791824645989d4c1b4bbcf8354b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1056, '67608615', NULL, NULL, '李秀兰', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_f3400c054032454db72c87ccfc97339c', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1057, '5430387', NULL, NULL, '孙刚', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_d8b6abb4e8a74f5e878cbf1edbaba6a1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1058, '76183046', NULL, NULL, '钱平', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_abc00fd8b32b4bbfb2d4fddf2e74f9d5', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1059, '22747422', NULL, NULL, '吕静', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_328c068c752649f58b050d82c48b4207', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1060, '73127572', NULL, NULL, '龙磊', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_d3d24209a8be417e9df344204f553617', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1061, '96480369', NULL, NULL, '邱秀英', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_9854a3faff0144f3934385b354e5d8e9', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1062, '1591673', NULL, NULL, '武芳', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_c69fc8dc3f4c408ca125ddc2a9ea83bb', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1063, '2743037', NULL, NULL, '邱强', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_82d20fbda92e40c293d92da7ceab7df0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1064, '76516214', NULL, NULL, '谭娜', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_ded8816a546e4e838b6cf6a9adfc18b7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1065, '11047280', NULL, NULL, '康静', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_92e2195fcc6f4f55b0fddf8e4b18624e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1066, '58139814', NULL, NULL, '武伟', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_9c29943d86e544c697b8b4ece2ee64d1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1067, '8424931', NULL, NULL, '侯军', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_fa945c3dd2f84d5eb6dcf26555b06f04', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1068, '59358178', NULL, NULL, '贺超', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_05215f9928ef4684857ada6960607937', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1069, '90390775', NULL, NULL, '金涛', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_1f4f2d23d03046f09277222d4f789b80', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1070, '97626129', NULL, NULL, '吕艳', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_326c585e26ff424c9f03c7f2df769ad1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1071, '53779596', NULL, NULL, '廖平', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_39925ed818bd420d8bb9b43e174a7615', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1072, '34323227', NULL, NULL, '杨超', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_ac2e7bf3562d4444895525c750c28069', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1073, '76572576', NULL, NULL, '张勇', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_d120eba876aa4e32a8dc726fb8163ac7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1074, '52909401', NULL, NULL, '刘敏', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_6586780c260b4646b6f583d3605867e6', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1075, '36241451', NULL, NULL, '吴娜', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_2466a167c3324504861976196b5eeb90', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1076, '30085623', NULL, NULL, '黎杰', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_c60f144fe87f403d8b40dc39a50e2c4d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1077, '74901763', NULL, NULL, '丁磊', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_9f063425dd0e4dee9ea377cb201b22b6', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1078, '94269193', NULL, NULL, '邹军', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_832429bfb5c0492dbee24ad1ab3d58d8', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1079, '8492895', NULL, NULL, '常静', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_fbf50a34002d4370ae5824692a40427e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1080, '29880291', NULL, NULL, '蔡丽', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_c2be7fcfbe5f4709a69f82ff702e7321', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1081, '96600691', NULL, NULL, '朱强', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_4bcbc6177d394b2082a9caf765d70fc1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1082, '35924799', NULL, NULL, '卢磊', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_a40d16df7d934ec9957cbc3be658b511', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1083, '539088', NULL, NULL, '廖刚', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_e7fef7db6a8b45a5970c51b9bdae90eb', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1084, '69009105', NULL, NULL, '杨磊', '$2a$10$B30supiib/Qjjn1G9g4UVuR1V4nnBjiHLCN3B7Xitlcoc.6GOU2Rq', '用户_d9a03c532b9c40cbac2c7d04a9a38fbc', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user` VALUES (1085, '77060538', NULL, NULL, '张杰', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_7556b275e4764878997693fcdae66d8a', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1086, '25624086', NULL, NULL, '贺明', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_7d4cadc8274a4e758dae4d95935d5318', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1087, '68171202', NULL, NULL, '郑娟', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_83adab210599452bb30d06c04a69bbd1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1088, '50386502', NULL, NULL, '杜杰', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_7c4f664941c04143b2ec071fcbff8b4f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1089, '29858364', NULL, NULL, '白勇', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_9ae6dddf695b42149eefa8cdccd1dd92', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1090, '21068726', NULL, NULL, '周明', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_5d9498946a7942c698a2ae2c6099a2e5', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1091, '82559680', NULL, NULL, '金军', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_895b11fe14f04354abfd8834fd4f3515', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1092, '73317430', NULL, NULL, '侯明', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_b7eb83ec024a4940a7d6ca5f104ad937', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1093, '32979666', NULL, NULL, '石娟', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_88dabf18bc0a475ab9b967c670044e81', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1094, '41238672', NULL, NULL, '潘超', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_d3ce4a76c1c74e3faca3efb386dd9fcd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1095, '87929275', NULL, NULL, '刘平', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_01b1b6b73dd64e4d9d5613f281433d90', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1096, '28726369', NULL, NULL, '田平', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_1c13d67ca7a94465ad75ae182762e278', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1097, '32668197', NULL, NULL, '白强', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_700cb3f1ed86450b87407caa3b60034f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1098, '48918818', NULL, NULL, '朱刚', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_6c9fb922bec641af8bb331e3fec7ce66', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1099, '6521882', NULL, NULL, '雷伟', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_622c2794a6db478b9aeb5997160d9c4b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1100, '16058499', NULL, NULL, '董秀英', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_515a4099197b4602b50606a1703d215d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1101, '56613028', NULL, NULL, '龚洋', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_a944330780fa4c6e980bd3ab29a264d0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1102, '11630773', NULL, NULL, '谢芳', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_a61aac33127d498c9e3be57a0145ede8', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1103, '85695137', NULL, NULL, '袁刚', '$2a$10$cQCdHhqMIRO26CJ0HStzOekF9w1VV5WassfPK3c9xrs5Y3dLFiY8i', '用户_13811272bdaf4cd694cdd5c04682cddb', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user` VALUES (1104, '38181718', NULL, NULL, '廖勇', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_673cbecf41fd4eae84fe37b02fa568b1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1105, '64198348', NULL, NULL, '邹桂英', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_b3d79eda213542598317c707c51c8ff4', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1106, '4645125', NULL, NULL, '唐明', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_e5cfde90c4e74bd39b5dfac26755e795', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1107, '25301364', NULL, NULL, '锺平', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_93b8bc66433346349efad28e20bc2d20', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1108, '53544590', NULL, NULL, '苏艳', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_622776a16ba04c7e9f0902e7f9fa0503', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1109, '86247278', NULL, NULL, '周超', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_c50d6d98471e43f7b8cdf0a92fdb6050', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1110, '71640524', NULL, NULL, '韩军', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_2d665432a98944d68fa97f302b8d4acb', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1111, '34338827', NULL, NULL, '魏娜', '$2a$10$yJlN/Xwm81AeRnrtR23cKuSLHchECAh585Pan1WsmcKGLiWyXDtt.', '用户_f6303e73415c413baf5635757815dc40', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user` VALUES (1112, '15698994', NULL, NULL, '林桂英', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_3741bb168e1548838f7304c9fd1dadab', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1113, '5124039', NULL, NULL, '邓艳', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_4b739fb9510b4ff4a2c7fe843553def4', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1114, '38477620', NULL, NULL, '钱平', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_43d6c1ec86754d3f811babcdcd34483f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1115, '42971898', NULL, NULL, '邵刚', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_10c4064f97cc4c7bbf58395b087e5d7e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1116, '76825641', NULL, NULL, '孔刚', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_5befb3088c214dee936077b773b6f134', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1117, '72481629', NULL, NULL, '阎秀英', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_47b67c71af0a4a59b736a1255f7f4952', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1118, '23519486', NULL, NULL, '高涛', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_936b03d63183475eb71c86998592a96c', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1119, '43784324', NULL, NULL, '何军', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_ea4a4108bcb141e390922dc22c7acc4f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1120, '94852316', NULL, NULL, '史芳', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_becd5c3c2f0d40e5800f78acf6899748', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1121, '36027948', NULL, NULL, '邓杰', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_ad11d358a81b4367922c20e482467665', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1122, '11692143', NULL, NULL, '周涛', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_a98058eb60674dc58df8da3312e2c85e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1123, '88729009', NULL, NULL, '孙静', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_357b1ffc0a5545d19fdd95d440094b02', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1124, '35145191', NULL, NULL, '黄超', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_5fc4a72cd2144840b8c44c37647f4aac', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1125, '83280193', NULL, NULL, '邓平', '$2a$10$QK2hF37e9rN2G35oq/FTB.MPXuxh9avTC5Gu6W9cgU5vJ8xNkIv/y', '用户_a47c6f14864a46d5a7aaec9f59a52890', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user` VALUES (1126, '73313879', NULL, NULL, '贾刚', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_caba1dcc013647fb9790a4aea5ee3cd4', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1127, '66868689', NULL, NULL, '余超', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_7c7c0ae0e8b9493e857ffe8fe80eebd2', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1128, '43360903', NULL, NULL, '范平', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_469394a35e154736826c624a48023314', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1129, '92521924', NULL, NULL, '曾芳', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_75be28cbc8a64bc3b1e346508bae3dd7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1130, '94708500', NULL, NULL, '田静', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_2d6b351136914b1d9aaf4b0cd3a0363c', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1131, '94398030', NULL, NULL, '周杰', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_782165b0af5748fe8c0d786d0fb1f87f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1132, '4865825', NULL, NULL, '潘艳', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_d67f6654611e4730a2d2436d98b6273b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1133, '77451065', NULL, NULL, '程霞', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_fceba71a77e74b329f6db94af24d707e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1134, '61845075', NULL, NULL, '康娟', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_964a25357beb490699c1ff69ccc7dec1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1135, '9913404', NULL, NULL, '贺涛', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_e9b0a0686f7345788f4d6d189c5ce29c', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1136, '67098137', NULL, NULL, '朱艳', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_645cd0885bb14aac9e88b8821d8009cc', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1137, '29575663', NULL, NULL, '余刚', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_75bb602e8a5145ef8b2050b66b4c207f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1138, '36771518', NULL, NULL, '宋秀兰', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_dc22b52f20964a18a1488bb4b36ab560', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1139, '59766184', NULL, NULL, '赵军', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_e4d9895ee76c41a9b6524720cbfd1d87', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1140, '96144679', NULL, NULL, '常超', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_e443f633559a4f5ca7698a48bd2f9e79', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1141, '46579576', NULL, NULL, '田艳', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_73ddd1906e3e49ff82d0e34e932b50a2', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1142, '93136660', NULL, NULL, '江伟', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_e512d96f32bb455ca3672817ff43ec7f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1143, '81129379', NULL, NULL, '苏超', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_65f8c796370b4b1e9059f5b754204ebf', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1144, '12907597', NULL, NULL, '丁芳', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_86271390aa8a461794d3fede09cc1f2f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1145, '25786197', NULL, NULL, '陈娜', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_d3a9a3d58ccb428b9b6d4ef8ffdfecf7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1146, '10519025', NULL, NULL, '吕敏', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_7d01fc49cfbc4395888354fd67b05634', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1147, '98708928', NULL, NULL, '戴霞', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_24eefa664af8425e8c37faa98708dac6', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1148, '33602433', NULL, NULL, '顾洋', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_fe5be498d039480fb1866b3b73e1f07b', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1149, '19898292', NULL, NULL, '周静', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_f5a3e39d83f646978c056ef2c04f7c3d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1150, '44547304', NULL, NULL, '锺桂英', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_92510c80aa6e477ba0ac3fd08b2d73c3', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1151, '14929605', NULL, NULL, '万敏', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_009c05349f1b4d8fb423b8263401c3bc', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1152, '40370127', NULL, NULL, '魏磊', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_943d03dc14c44847b9bb6ad5466322cf', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1153, '46884530', NULL, NULL, '汤刚', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_e56f3f41c913447b943db8e7cfc8dee7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1154, '85696624', NULL, NULL, '邓勇', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_49693966865644eb9f640c27d2df6778', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1155, '61524368', NULL, NULL, '苏强', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_1c5ce4cf82324389877cd2dad05b3bbc', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1156, '21593574', NULL, NULL, '曹秀兰', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_a846f27afd91440baac77c1ed377b269', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1157, '73007688', NULL, NULL, '余杰', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_7dd5a79626fe4d1eaa5d4ad37234cec0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1158, '59855372', NULL, NULL, '田丽', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_85469c6574074026b34fd372316c915d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1159, '77456034', NULL, NULL, '沈勇', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_b37e60be482a471088feae70d705db48', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1160, '20499334', NULL, NULL, '郝静', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_d13119e902e6477094049f337a043fd6', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1161, '90175824', NULL, NULL, '沈刚', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_a3536388f91c4335b0fdf32f2872613d', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1162, '60382817', NULL, NULL, '金伟', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_a77588b92832405fb8f5b3f75f604aa7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1163, '90158721', NULL, NULL, '郭秀英', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_c222526035f94cfb9dcac166af464af0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1164, '77149088', NULL, NULL, '廖敏', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_514c8535b62d43abb963927f3b2668b0', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1165, '38146529', NULL, NULL, '武超', '$2a$10$TZz4X0Kmp5sUEuKZq/MG5.1YRTy02rOH4njDuiLUxsY4nfq0cf8Aq', '用户_2b8cd142828e49318d027980fda3299e', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user` VALUES (1166, '73313879', NULL, NULL, '贾刚', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_760bbbe62c10444689fb369911d3d59b', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1167, '66868689', NULL, NULL, '余超', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_c8316b28f67a44a8bf1c42574fd582d6', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1168, '43360903', NULL, NULL, '范平', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_3541186b3bd341a7a3fa4076627c8b39', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1169, '92521924', NULL, NULL, '曾芳', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_16659475508647bfbc27c9bb2830a2c9', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1170, '94708500', NULL, NULL, '田静', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_4e6d4273e3e44057b52ee1c73dd47b69', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1171, '94398030', NULL, NULL, '周杰', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_3ccea4ee06cc45d8bd5730ac80e4a0e0', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1172, '4865825', NULL, NULL, '潘艳', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_f5c59d139c5e41149b5501e8ca822832', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1173, '77451065', NULL, NULL, '程霞', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_19479989097a44b3a4c054bdf5f54adb', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1174, '61845075', NULL, NULL, '康娟', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_6436795cec404c69953c45402149d63b', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1175, '9913404', NULL, NULL, '贺涛', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_d5c0846b7a80401f94f2488e3a9866c5', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1176, '67098137', NULL, NULL, '朱艳', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_ecc790a79ab74c7cb47c99defeb0098c', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1177, '29575663', NULL, NULL, '余刚', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_cfb7fb814abf46f4b04c6b360b852ed1', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1178, '36771518', NULL, NULL, '宋秀兰', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_0e6c357bdffb4086a50fdf750542ac4e', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1179, '59766184', NULL, NULL, '赵军', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_a404d030d9e1497c9d16109c887ab1c8', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1180, '96144679', NULL, NULL, '常超', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_3cd68cf4de304b4b8383de3d7a5e0eb3', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1181, '46579576', NULL, NULL, '田艳', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_981a980b15334f9782850b4cc3bffdf1', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1182, '93136660', NULL, NULL, '江伟', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_e7521125dd8644f796de819966e455f0', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1183, '81129379', NULL, NULL, '苏超', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_c041a468dcc74ad8bc0778f18c54fcda', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1184, '12907597', NULL, NULL, '丁芳', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_49e2bb360b5d4509ba95786848930f09', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1185, '25786197', NULL, NULL, '陈娜', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_38e6cc1761084cddadc9fee65d9489c6', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1186, '10519025', NULL, NULL, '吕敏', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_6e76f49907ce4e5f91f3dbec677ed934', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1187, '98708928', NULL, NULL, '戴霞', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_73d101f8f7344f3a8991540f5e467ca7', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1188, '33602433', NULL, NULL, '顾洋', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_fe38ef1036584ba7b096e1c9dfa6cb04', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1189, '19898292', NULL, NULL, '周静', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_461b7d6bce80411ca815609c964a6821', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1190, '44547304', NULL, NULL, '锺桂英', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_c00b44665d064136a1ccb71e42d28737', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1191, '14929605', NULL, NULL, '万敏', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_b7ed729eed2549759be422473fe00e99', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1192, '40370127', NULL, NULL, '魏磊', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_174b42df1a9d46469fd6403aee561114', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1193, '46884530', NULL, NULL, '汤刚', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_4a770c7a686b462d90e329a062f8e2dc', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1194, '85696624', NULL, NULL, '邓勇', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_fd2ca15445ff4600a68df8a1e1bbf09e', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1195, '61524368', NULL, NULL, '苏强', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_2d0206c8de6f4570baa2be6f53745e57', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1196, '21593574', NULL, NULL, '曹秀兰', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_e16704d361394741aa198df4537d9ea0', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1197, '73007688', NULL, NULL, '余杰', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_a0c8c1d553484893897c624a217c402c', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1198, '59855372', NULL, NULL, '田丽', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_dd9585ee35c0448a8a9c6e34e4a9b0bb', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1199, '77456034', NULL, NULL, '沈勇', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_64dc9aaa065e400185cacfb727265cc9', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1200, '20499334', NULL, NULL, '郝静', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_42b06a5139a64d2bba55107ea29164d8', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1201, '90175824', NULL, NULL, '沈刚', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_aad446879ac74a20a38fec023afd769c', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1202, '60382817', NULL, NULL, '金伟', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_0e9a8e6d1f3744918b2a30faf7b72957', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1203, '90158721', NULL, NULL, '郭秀英', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_739d36446aa840c78e44a2597f8f4b8a', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1204, '77149088', NULL, NULL, '廖敏', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_05c16e7998374994b0f2b3c68534f399', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1205, '38146529', NULL, NULL, '武超', '$2a$10$yaGeZn.WDrDc0b9h3pF1m.iCUwDAuDz.R3/9DeLxjSo2/Uoi1J7DG', '用户_92da5988f7684c9492b456071bedae11', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user` VALUES (1206, '66383831', NULL, NULL, '杨静', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_60c59eea63f244928263020356db9c27', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1207, '41496788', NULL, NULL, '徐强', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_a20f4d06a7b14298b2b82297c371b2d1', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1208, '42815387', NULL, NULL, '郑明', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_eb2a42cd2c644cabbcf386fe6933ca07', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1209, '69239856', NULL, NULL, '吕超', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_f57d7f4128ad49408e35708fe328f5bd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1210, '93051038', NULL, NULL, '李伟', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_36144238a1934540bd8357c6d4a8a20f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1211, '67836052', NULL, NULL, '崔秀英', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_1f9352fe404e47fe89f78ba89c3556cd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1212, '14085269', NULL, NULL, '梁刚', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_c9380b8ac43a4c6d98482d0a8af569f4', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1213, '44031398', NULL, NULL, '崔洋', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_a8ead83688c44dfe98024c7f8c84ad53', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1214, '89926923', NULL, NULL, '李涛', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_119196a6473b4581875ae0efa6d590b8', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1215, '75725993', NULL, NULL, '龙超', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_9527f0597dbe40d396d3fe941db154a5', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1216, '88536960', NULL, NULL, '薛刚', '$2a$10$MqEYjMwwKbA9SP/HQJ88oO18cZoq9/mwX0JqRecovyGkYzce.3OdS', '用户_bdf2b0997598411388bc713cf0a51898', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user` VALUES (1217, '34503598', NULL, NULL, '毛洋', '$2a$10$1YaFmFAXG9JguGFyrWjOcuNTajNuXIoO6EnYne0DcCLrqmx.sPai6', '用户_50d39d96edf1432da75807a50d6f18cd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user` VALUES (1218, '27530720', NULL, NULL, '罗明', '$2a$10$1YaFmFAXG9JguGFyrWjOcuNTajNuXIoO6EnYne0DcCLrqmx.sPai6', '用户_ebc1b29c0822424aa4638b496cf85184', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user` VALUES (1219, '48421704', NULL, NULL, '邵军', '$2a$10$1YaFmFAXG9JguGFyrWjOcuNTajNuXIoO6EnYne0DcCLrqmx.sPai6', '用户_a90a885eb1aa4a49937d7c0743dd4536', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user` VALUES (1220, '18481442', NULL, NULL, '赵强', '$2a$10$1YaFmFAXG9JguGFyrWjOcuNTajNuXIoO6EnYne0DcCLrqmx.sPai6', '用户_801788dcdbdf446da35c69376c0729a4', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user` VALUES (1221, '41342064', NULL, NULL, '于艳', '$2a$10$1YaFmFAXG9JguGFyrWjOcuNTajNuXIoO6EnYne0DcCLrqmx.sPai6', '用户_138244e738584cca8c305f0b1ade152f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user` VALUES (1222, '76201062', NULL, NULL, '张娜', '$2a$10$1YaFmFAXG9JguGFyrWjOcuNTajNuXIoO6EnYne0DcCLrqmx.sPai6', '用户_e0552803a6504062b184ae1630286cdb', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user` VALUES (1223, '98523687', NULL, NULL, '万刚', '$2a$10$1YaFmFAXG9JguGFyrWjOcuNTajNuXIoO6EnYne0DcCLrqmx.sPai6', '用户_b9361c14b42943a6aef04fe5de30dd6f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user` VALUES (1224, '53145086', NULL, NULL, '任娜', '$2a$10$L0H2wOLjOasJz5cOqGMYkejIZ942oC.6xXOuawnGzKaTWvelkmkQ6', '用户_afafc7d95ec64afc999db15070a0c55f', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:04:08', '2023-04-03 21:04:08');
+INSERT INTO `sys_user` VALUES (1225, '11455973', NULL, NULL, '万桂英', '$2a$10$L0H2wOLjOasJz5cOqGMYkejIZ942oC.6xXOuawnGzKaTWvelkmkQ6', '用户_9210b2ed151a49f3958597dabfb7312c', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:04:08', '2023-04-03 21:04:08');
+INSERT INTO `sys_user` VALUES (1226, '50616519', NULL, NULL, '贺磊', '$2a$10$L0H2wOLjOasJz5cOqGMYkejIZ942oC.6xXOuawnGzKaTWvelkmkQ6', '用户_ebda1111cbcf45b398b4c908061a8ca7', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 21:04:08', '2023-04-03 21:04:08');
+INSERT INTO `sys_user` VALUES (1227, 'teacher1', NULL, 'sdasdaq@qq.com', '经济管理', '$2a$10$gMz6.VBj/FC84jQzRS.L6e/LOLwZcMPXFSX2ySm2/PVE8Mv8Dbu0u', 'asadas21321', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-03 22:01:55', '2023-04-03 22:01:55');
+INSERT INTO `sys_user` VALUES (1228, 'teacher2', NULL, '123@qq.com', '人文社会', '$2a$10$K2Iip5HgbeFsdXSqqZrLa.cKEJ.5Sj.7O0NUZHpIlW26OdnTrz9Ai', 'ascasd', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-07 17:13:34', '2023-04-07 17:13:34');
+INSERT INTO `sys_user` VALUES (1229, 'teacher3', NULL, 'qewqeqw@qq.com', '信息与机械', '$2a$10$JRqrj9ytR6iE6N1QhSXvD.zm/8EEu9QrC9Rvd/yeBX9EMm5EaWI26', 'zkxczcz', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-07 17:14:14', '2023-04-07 17:14:14');
+INSERT INTO `sys_user` VALUES (1230, 'teacher4', NULL, 'sdasdaq@qq.com', '文学艺术', '$2a$10$iwguSYUet0ppUFleibH99uzRmHZe/FbctQB7BrdFGrYW.RbUTeoAO', 'lzxlclll', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-07 17:14:42', '2023-04-07 17:14:42');
+INSERT INTO `sys_user` VALUES (1231, 'teacher5', NULL, 'sdasdaq@qq.com', '工程技术', '$2a$10$jumt1NTE1YbgaJj2Xvxn5OoPJQKfSKPNZF32AtQDr5Uo83ba7fWFi', 'zxcva', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-07 17:15:14', '2023-04-07 17:15:14');
+INSERT INTO `sys_user` VALUES (1232, 'teacher6', NULL, '123@qq.com', '农业与食品', '$2a$10$8tYijUt5Th32MR5JQW3nW.xZz34/eJbeLUpZUCRYESDoK.f90GM1u', 'regnn', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-07 17:16:01', '2023-04-07 17:16:01');
+INSERT INTO `sys_user` VALUES (1233, 'admin2', NULL, '123@qq.com', '管理员', '$2a$10$Df9if9hSKiZqpusW6ba4aeZV19.S50wa51nvQ.qP5UErMoKfH8hE.', 'admin2', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-07 17:16:41', '2023-04-07 17:16:41');
+INSERT INTO `sys_user` VALUES (1234, 'admin3', NULL, '1sdasdaq@qq.com', '测试管理员', '$2a$10$zKfSmEXWqOjMldSE/kFaRe7Ry3ERY9CSj37.pgV22O5ll66GN1iai', 'admin3', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-07 17:17:11', '2023-04-07 17:17:11');
+INSERT INTO `sys_user` VALUES (1235, 'asdazzzzzzz', NULL, 'sdasdaq@qq.com', '中在线', '$2a$10$u5dBnK9fbAAzA7yXZcptAuF474UGEnUSzxfYMAAQrVrm7DJ/SWNyC', 'Asasada', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-04-09 17:58:11', '2023-04-09 17:58:11');
+INSERT INTO `sys_user` VALUES (1241, 'boss1', NULL, 'asdadasdasd@qq.com', '麦当劳', '$2a$10$MxZ0sDKMvG4HyK5RPv8oiOuHmsqrVB3Upw8mF.j7OwEmP6yXuuTL.', '麦当劳', 1, '1645339056290263042', '麦当劳', NULL, 2, NULL, 0, '2023-04-10 16:12:54', '2023-04-10 16:12:54');
+INSERT INTO `sys_user` VALUES (1242, 'boss2', NULL, '123@qq.com', '阿里巴巴', '$2a$10$eJI1IxwWQk3bS1u8Oca.3eLGNqbMk1XO/O0NHbXzmgS1b.JBH47Iu', '阿里巴巴', 1, '1645339288159776769', '阿里巴巴', NULL, 2, NULL, 0, '2023-04-10 16:13:49', '2023-04-10 16:13:49');
+INSERT INTO `sys_user` VALUES (1243, 'boss3', NULL, 'qewqeqw@qq.com', '腾讯', '$2a$10$C.9yjcCgNAYpcXg6/GSnVO6xN6n2LJtCV6eodfPAtaWAtBNxTWX8S', '腾讯', 1, '1645339396007915521', '腾讯', NULL, 2, NULL, 0, '2023-04-10 16:14:15', '2023-04-10 16:14:15');
+INSERT INTO `sys_user` VALUES (1244, 'boss4', NULL, '123asda@qq.com', '网龙', '$2a$10$kjNctt/VbNqk0xXnRQu2i.uR80CNINwjt1DLOR8MAXVHUwwq1O8DG', '网龙', 1, '1645339616334704642', '网龙', NULL, 2, NULL, 0, '2023-04-10 16:15:08', '2023-04-10 16:15:08');
+INSERT INTO `sys_user` VALUES (1245, 'boss5', NULL, 'asdada12313@qq.com', '顺丰', '$2a$10$.nN.vuMhSXNKN5pSDWPuleExKe9LQxHz5GhDGrPpBYNTzfzvdFH0.', '顺丰', 1, '1645339801341259778', '顺丰', NULL, 2, NULL, 0, '2023-04-10 16:15:52', '2023-04-10 16:15:52');
+INSERT INTO `sys_user` VALUES (1246, 'boss6', NULL, '12saghtrh3@qq.com', '肯德基', '$2a$10$bydJSqyhIKIusoaoJe9KlOr5v5I8Hrg4XqCUKeOlqEvIyIbIfgb6a', '肯德基v我50', 1, '1645340074247843841', '肯德基', NULL, 2, NULL, 0, '2023-04-10 16:16:57', '2023-04-10 16:16:57');
+INSERT INTO `sys_user` VALUES (1247, 'boss7', NULL, '4634363642@qq.com', '兴业数金', '$2a$10$V5p3LwDPtIkaqYADCF9LzuvBzQtFJsERQIaL01XokGEVikckQQ1Ui', '兴业数金', 1, '1645340472782221314', '兴业数金', NULL, 2, NULL, 0, '2023-04-10 16:18:32', '2023-04-10 16:18:32');
+INSERT INTO `sys_user` VALUES (1248, 'boss8', NULL, 'asd2131q@qq.com', '蔚来', '$2a$10$fMEFJQnm0oHgzywWdEMiq.KjvNhaJJTHmTIyC7bzBL//Q9QTLl7Zu', 'NIO蔚来', 0, '1645340659734933506', 'NIO蔚来', NULL, 0, NULL, 0, '2023-04-10 16:19:16', '2023-04-10 16:19:16');
+INSERT INTO `sys_user` VALUES (1249, 'boss9', NULL, '456351211@qq.com', '美团', '$2a$10$Xoabp7pghH79FQo0yiPeJO1vJvdpHv2B0RONeW5ha79U0BGAXeAB.', '美团', 0, '1645340891537338370', '美团', NULL, 0, NULL, 0, '2023-04-10 16:20:12', '2023-04-10 16:20:12');
+INSERT INTO `sys_user` VALUES (1250, 'boss10', NULL, '12262sda@qq.com', '饿了么', '$2a$10$MK5ng08XBAI/0IesenAJG.AuAy/UPauBrC91ptK1T.LeOKA0fsJ1i', '饿了么', 0, '1645341022068273153', '饿了么', NULL, 0, NULL, 0, '2023-04-10 16:20:43', '2023-04-10 16:20:43');
+INSERT INTO `sys_user` VALUES (1251, 'boss11', NULL, 'a856756@qq.com', '小米', '$2a$10$4/KR29GWpfX5qlugI9U/peXPmNDR7hfsDVgpsK4OrRH/Qidk7uOeC', '小米', 0, '1645341240427933698', '小米', NULL, 0, NULL, 0, '2023-04-10 16:21:35', '2023-04-10 16:21:35');
+INSERT INTO `sys_user` VALUES (1254, 'hr11', NULL, 'asd213213123q@qq.com', '王女士', '$2a$10$XKxeOrkYwCxb.UCAvWJUnOLgbhb/kSfpe5Vjiyo3q94ug109lL7Vu', '王女士', 0, '1645339056290263042', '麦当劳', NULL, NULL, NULL, 0, '2023-04-10 20:06:25', '2023-04-10 20:06:25');
+INSERT INTO `sys_user` VALUES (1256, 'hr12', NULL, 'as121@qq.com', '陈先生', '$2a$10$hXR9Yk.uPOnVCCqlZYVtsuahq8FBTomUAY5nnNz29emgsupqpo4i.', '陈先生', 0, '1645339056290263042', '麦当劳', NULL, NULL, NULL, 0, '2023-04-11 20:42:38', '2023-04-11 20:42:38');
+INSERT INTO `sys_user` VALUES (1257, 'hr13', NULL, 'as12rref@qq.com', '林先生', '$2a$10$GyfAZLXR7NBMMp.PGlNBy.zm6dvvYAkrScHu7AI9GVTL4dq8d3oaa', '林先生', 0, '1645339056290263042', '麦当劳', NULL, NULL, NULL, 0, '2023-04-11 22:02:14', '2023-04-11 22:02:14');
+INSERT INTO `sys_user` VALUES (1258, 'hr14', NULL, '12312asdaqt@126.com', '赵女士', '$2a$10$uvcx92clVcNq/vwYb8liwOETvx0TWYqXlcopbnukapcgPfcWyt9Ci', '赵女士', 0, '1645339056290263042', '麦当劳', NULL, NULL, NULL, 0, '2023-04-11 22:07:42', '2023-04-11 22:07:42');
+INSERT INTO `sys_user` VALUES (1259, 'hr15', NULL, '19338ppp@qq.com', '黄女士', '$2a$10$8/FPRZ0YJeAgUTn..wxhO.ccsfcBHiB5Afi6E1LIp7LYu92cqaaHS', '黄女士', 0, '1645339056290263042', '麦当劳', NULL, NULL, NULL, 0, '2023-04-11 22:11:00', '2023-04-11 22:11:00');
+INSERT INTO `sys_user` VALUES (1260, 'hr21', NULL, '123asd444@qq.com', '王先生', '$2a$10$Ky5fHg1x3mB0vXCj7XPxAunFOCpKDzcMrwsNGtNx8lUY1Ekja1s/S', '王先生', 0, '1645339288159776769', '阿里巴巴', NULL, NULL, NULL, 0, '2023-04-11 22:45:08', '2023-04-11 22:45:08');
+INSERT INTO `sys_user` VALUES (1261, 'hr22', NULL, '878977w@qq.com', '李先生', '$2a$10$VK2PYcVNBE9fO/8xCwdgLe3wQAw2zZSkTjJ2eLzMXaIoihyrWmsYq', '李先生', 0, '1645339288159776769', '阿里巴巴', NULL, NULL, NULL, 0, '2023-04-11 22:46:05', '2023-04-11 22:46:05');
+INSERT INTO `sys_user` VALUES (1262, 'hr23', NULL, '48124892@126.com', '欧女士', '$2a$10$2KlcHLS9mkJjh912Z/uxQupECyHEr30F7G3Ue6JQWVfMUwFo2Z1gq', '欧女士', 0, '1645339288159776769', '阿里巴巴', NULL, NULL, NULL, 0, '2023-04-11 22:46:54', '2023-04-11 22:46:54');
+INSERT INTO `sys_user` VALUES (1263, 'hr31', NULL, 'qsad112231qq@qq.com', '凹女士', '$2a$10$GozuMW8qwyhydWzTlQlKWux0V.6QrkT97xINS1CtTOZ9CtDJoCvxq', '凹女士', 0, '1645339396007915521', '腾讯', NULL, NULL, NULL, 0, '2023-04-11 23:28:18', '2023-04-11 23:28:18');
+INSERT INTO `sys_user` VALUES (1264, 'hr32', NULL, '52312qqq@qq.com', '安女士', '$2a$10$1C.r1aAhqCQbOnm6adx6rORxbI7mnExyHIsIscLTzUCB3VV7NRXoG', '安女士', 0, '1645339396007915521', '腾讯', NULL, NULL, NULL, 0, '2023-04-11 23:28:50', '2023-04-11 23:28:50');
+INSERT INTO `sys_user` VALUES (1265, 'hr41', NULL, 'sad1214qq@qq.com', '姚女士', '$2a$10$KkDgi5ymP.uiKXuN0RZX8ujsDijGut1Uc1Pcru7t1vEVeMyhBIlxa', '姚女士', 0, '1645339616334704642', '网龙', NULL, NULL, NULL, 0, '2023-04-12 11:21:36', '2023-04-12 11:21:36');
+INSERT INTO `sys_user` VALUES (1266, 'hr51', NULL, 'asooop12q@qq.com', '朱先生', '$2a$10$YLFo7/7PEz0At5Z3krt2JuK0BjGJIiZdirrbOn0alH6Rkca41e/zy', '朱先生', 0, '1645339801341259778', '顺丰', NULL, NULL, NULL, 0, '2023-04-12 13:14:06', '2023-04-12 13:14:06');
+INSERT INTO `sys_user` VALUES (1267, 'hr61', NULL, 'wr222qq.com1@qq.com', '陈先生', '$2a$10$lkOBx51lWPQWvqzRduKeJOJnfLa/FkAAbz7ZYjtpftIgL8fHQbvrW', '陈先生', 0, '1645340074247843841', '肯德基', NULL, NULL, NULL, 0, '2023-04-12 13:43:07', '2023-04-12 13:43:07');
+INSERT INTO `sys_user` VALUES (1268, 'hr71', NULL, '8978778sd@qq.com', '叶女士', '$2a$10$fOmozPdu.c59W2BMuwKzROHxxL8ay4WQAXYBE5hUEQZ9J5nXNWpk6', '叶女士', 0, '1645340472782221314', '兴业数金', NULL, NULL, NULL, 0, '2023-04-12 14:25:41', '2023-04-12 14:25:41');
+INSERT INTO `sys_user` VALUES (1269, 'asa111', '15314314136', '1024983409@qq.com', '洪钦坤', '$2a$10$oTprr/PyfsIrSqAEpzf.hueZPt6ggKlLwItUVnURBnHC31VJkEDza', 'asad22222222', 0, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-29 10:43:55', '2023-04-29 10:43:55');
+INSERT INTO `sys_user` VALUES (1270, '2asdad', '15314314136', '1024983409@qq.com', '洪钦坤', '$2a$10$xDu6XAdfFHBAZAclePKnZuiHIo96yj379B86BkkIfkbUyF2/iI0ci', 'Asazx2131', 0, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-29 10:48:04', '2023-04-29 10:48:04');
+INSERT INTO `sys_user` VALUES (1271, 'test8asq', '15314314136', '1024983409@qq.com', '洪钦坤', '$2a$10$hTjHNeY/0F7KnBgDNjpbGOt0NKcXjU1mlWU/ol2sdADT1w..FtdOK', 'asad32asd', 0, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-29 10:48:37', '2023-04-29 10:48:37');
+INSERT INTO `sys_user` VALUES (1272, 'tezx23st8', '15314314136', '1024983409@qq.com', '洪钦坤', '$2a$10$dL5ZuWqRfLm7vC0MjYfFdeUTgESuR29PpBQIB95Oa60q7JS/xpgHu', 'asaddasdas21321sa', 0, NULL, NULL, NULL, NULL, NULL, 1, '2023-04-29 10:48:58', '2023-04-29 10:48:58');
+INSERT INTO `sys_user` VALUES (1273, 'sad1123', '15314314136', '1024983409@qq.com', '洪钦坤', '$2a$10$TbxjR8wIRFLeT6TjhrxPsumtkgD51j.rGWOoBUCT.a.x.MpC9AmjW', 'asd12123sdas', 0, NULL, '213231', NULL, 0, NULL, 0, '2023-04-29 10:49:35', '2023-04-29 10:49:35');
+
+-- ----------------------------
+-- Table structure for sys_user_major
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_major`;
+CREATE TABLE `sys_user_major`  (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NULL DEFAULT NULL COMMENT '用户id',
+  `major_id` bigint NULL DEFAULT NULL COMMENT '专业id',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1907 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user_major
+-- ----------------------------
+INSERT INTO `sys_user_major` VALUES (564, 1, 1);
+INSERT INTO `sys_user_major` VALUES (1571, 948, 9);
+INSERT INTO `sys_user_major` VALUES (1572, 949, 9);
+INSERT INTO `sys_user_major` VALUES (1573, 950, 9);
+INSERT INTO `sys_user_major` VALUES (1574, 951, 9);
+INSERT INTO `sys_user_major` VALUES (1575, 952, 9);
+INSERT INTO `sys_user_major` VALUES (1576, 953, 9);
+INSERT INTO `sys_user_major` VALUES (1577, 954, 9);
+INSERT INTO `sys_user_major` VALUES (1578, 955, 9);
+INSERT INTO `sys_user_major` VALUES (1579, 956, 9);
+INSERT INTO `sys_user_major` VALUES (1580, 957, 9);
+INSERT INTO `sys_user_major` VALUES (1581, 958, 9);
+INSERT INTO `sys_user_major` VALUES (1582, 959, 9);
+INSERT INTO `sys_user_major` VALUES (1583, 960, 9);
+INSERT INTO `sys_user_major` VALUES (1584, 961, 9);
+INSERT INTO `sys_user_major` VALUES (1585, 962, 9);
+INSERT INTO `sys_user_major` VALUES (1586, 963, 9);
+INSERT INTO `sys_user_major` VALUES (1587, 964, 9);
+INSERT INTO `sys_user_major` VALUES (1588, 965, 9);
+INSERT INTO `sys_user_major` VALUES (1589, 966, 9);
+INSERT INTO `sys_user_major` VALUES (1590, 967, 9);
+INSERT INTO `sys_user_major` VALUES (1591, 968, 9);
+INSERT INTO `sys_user_major` VALUES (1592, 969, 9);
+INSERT INTO `sys_user_major` VALUES (1593, 970, 9);
+INSERT INTO `sys_user_major` VALUES (1594, 971, 9);
+INSERT INTO `sys_user_major` VALUES (1595, 972, 9);
+INSERT INTO `sys_user_major` VALUES (1596, 973, 9);
+INSERT INTO `sys_user_major` VALUES (1597, 974, 9);
+INSERT INTO `sys_user_major` VALUES (1598, 975, 9);
+INSERT INTO `sys_user_major` VALUES (1599, 976, 9);
+INSERT INTO `sys_user_major` VALUES (1600, 977, 9);
+INSERT INTO `sys_user_major` VALUES (1601, 978, 9);
+INSERT INTO `sys_user_major` VALUES (1602, 979, 9);
+INSERT INTO `sys_user_major` VALUES (1603, 980, 9);
+INSERT INTO `sys_user_major` VALUES (1604, 981, 9);
+INSERT INTO `sys_user_major` VALUES (1605, 982, 9);
+INSERT INTO `sys_user_major` VALUES (1606, 983, 9);
+INSERT INTO `sys_user_major` VALUES (1607, 984, 9);
+INSERT INTO `sys_user_major` VALUES (1608, 985, 9);
+INSERT INTO `sys_user_major` VALUES (1609, 986, 9);
+INSERT INTO `sys_user_major` VALUES (1610, 987, 9);
+INSERT INTO `sys_user_major` VALUES (1611, 988, 11);
+INSERT INTO `sys_user_major` VALUES (1612, 989, 11);
+INSERT INTO `sys_user_major` VALUES (1613, 990, 11);
+INSERT INTO `sys_user_major` VALUES (1614, 991, 11);
+INSERT INTO `sys_user_major` VALUES (1615, 992, 11);
+INSERT INTO `sys_user_major` VALUES (1616, 993, 11);
+INSERT INTO `sys_user_major` VALUES (1617, 994, 11);
+INSERT INTO `sys_user_major` VALUES (1618, 995, 11);
+INSERT INTO `sys_user_major` VALUES (1619, 996, 11);
+INSERT INTO `sys_user_major` VALUES (1620, 997, 11);
+INSERT INTO `sys_user_major` VALUES (1621, 998, 11);
+INSERT INTO `sys_user_major` VALUES (1622, 999, 11);
+INSERT INTO `sys_user_major` VALUES (1623, 1000, 11);
+INSERT INTO `sys_user_major` VALUES (1624, 1001, 11);
+INSERT INTO `sys_user_major` VALUES (1625, 1002, 11);
+INSERT INTO `sys_user_major` VALUES (1626, 1003, 11);
+INSERT INTO `sys_user_major` VALUES (1627, 1004, 11);
+INSERT INTO `sys_user_major` VALUES (1628, 1005, 11);
+INSERT INTO `sys_user_major` VALUES (1629, 1006, 11);
+INSERT INTO `sys_user_major` VALUES (1630, 1007, 11);
+INSERT INTO `sys_user_major` VALUES (1631, 1008, 11);
+INSERT INTO `sys_user_major` VALUES (1632, 1009, 11);
+INSERT INTO `sys_user_major` VALUES (1633, 1010, 11);
+INSERT INTO `sys_user_major` VALUES (1634, 1011, 11);
+INSERT INTO `sys_user_major` VALUES (1635, 1012, 11);
+INSERT INTO `sys_user_major` VALUES (1636, 1013, 11);
+INSERT INTO `sys_user_major` VALUES (1637, 1014, 11);
+INSERT INTO `sys_user_major` VALUES (1638, 1015, 11);
+INSERT INTO `sys_user_major` VALUES (1639, 1016, 11);
+INSERT INTO `sys_user_major` VALUES (1640, 1017, 11);
+INSERT INTO `sys_user_major` VALUES (1641, 1018, 11);
+INSERT INTO `sys_user_major` VALUES (1642, 1019, 11);
+INSERT INTO `sys_user_major` VALUES (1643, 1020, 11);
+INSERT INTO `sys_user_major` VALUES (1644, 1021, 11);
+INSERT INTO `sys_user_major` VALUES (1645, 1022, 11);
+INSERT INTO `sys_user_major` VALUES (1646, 1023, 11);
+INSERT INTO `sys_user_major` VALUES (1647, 1024, 11);
+INSERT INTO `sys_user_major` VALUES (1648, 1025, 11);
+INSERT INTO `sys_user_major` VALUES (1649, 1026, 11);
+INSERT INTO `sys_user_major` VALUES (1650, 1027, 11);
+INSERT INTO `sys_user_major` VALUES (1651, 1028, 11);
+INSERT INTO `sys_user_major` VALUES (1652, 1029, 11);
+INSERT INTO `sys_user_major` VALUES (1653, 1030, 11);
+INSERT INTO `sys_user_major` VALUES (1654, 1031, 11);
+INSERT INTO `sys_user_major` VALUES (1655, 1032, 11);
+INSERT INTO `sys_user_major` VALUES (1656, 1033, 11);
+INSERT INTO `sys_user_major` VALUES (1657, 1034, 11);
+INSERT INTO `sys_user_major` VALUES (1658, 1035, 15);
+INSERT INTO `sys_user_major` VALUES (1659, 1036, 15);
+INSERT INTO `sys_user_major` VALUES (1660, 1037, 15);
+INSERT INTO `sys_user_major` VALUES (1661, 1038, 15);
+INSERT INTO `sys_user_major` VALUES (1662, 1039, 15);
+INSERT INTO `sys_user_major` VALUES (1663, 1040, 15);
+INSERT INTO `sys_user_major` VALUES (1664, 1041, 15);
+INSERT INTO `sys_user_major` VALUES (1665, 1042, 15);
+INSERT INTO `sys_user_major` VALUES (1666, 1043, 15);
+INSERT INTO `sys_user_major` VALUES (1667, 1044, 15);
+INSERT INTO `sys_user_major` VALUES (1668, 1045, 15);
+INSERT INTO `sys_user_major` VALUES (1669, 1046, 15);
+INSERT INTO `sys_user_major` VALUES (1670, 1047, 15);
+INSERT INTO `sys_user_major` VALUES (1671, 1048, 15);
+INSERT INTO `sys_user_major` VALUES (1672, 1049, 15);
+INSERT INTO `sys_user_major` VALUES (1673, 1050, 15);
+INSERT INTO `sys_user_major` VALUES (1674, 1051, 15);
+INSERT INTO `sys_user_major` VALUES (1675, 1052, 15);
+INSERT INTO `sys_user_major` VALUES (1676, 1053, 15);
+INSERT INTO `sys_user_major` VALUES (1677, 1054, 15);
+INSERT INTO `sys_user_major` VALUES (1678, 1055, 15);
+INSERT INTO `sys_user_major` VALUES (1679, 1056, 15);
+INSERT INTO `sys_user_major` VALUES (1680, 1057, 15);
+INSERT INTO `sys_user_major` VALUES (1681, 1058, 15);
+INSERT INTO `sys_user_major` VALUES (1682, 1059, 15);
+INSERT INTO `sys_user_major` VALUES (1683, 1060, 15);
+INSERT INTO `sys_user_major` VALUES (1684, 1061, 15);
+INSERT INTO `sys_user_major` VALUES (1685, 1062, 15);
+INSERT INTO `sys_user_major` VALUES (1686, 1063, 15);
+INSERT INTO `sys_user_major` VALUES (1687, 1064, 15);
+INSERT INTO `sys_user_major` VALUES (1688, 1065, 15);
+INSERT INTO `sys_user_major` VALUES (1689, 1066, 15);
+INSERT INTO `sys_user_major` VALUES (1690, 1067, 15);
+INSERT INTO `sys_user_major` VALUES (1691, 1068, 15);
+INSERT INTO `sys_user_major` VALUES (1692, 1069, 15);
+INSERT INTO `sys_user_major` VALUES (1693, 1070, 15);
+INSERT INTO `sys_user_major` VALUES (1694, 1071, 15);
+INSERT INTO `sys_user_major` VALUES (1695, 1072, 15);
+INSERT INTO `sys_user_major` VALUES (1696, 1073, 15);
+INSERT INTO `sys_user_major` VALUES (1697, 1074, 15);
+INSERT INTO `sys_user_major` VALUES (1698, 1075, 15);
+INSERT INTO `sys_user_major` VALUES (1699, 1076, 15);
+INSERT INTO `sys_user_major` VALUES (1700, 1077, 15);
+INSERT INTO `sys_user_major` VALUES (1701, 1078, 15);
+INSERT INTO `sys_user_major` VALUES (1702, 1079, 15);
+INSERT INTO `sys_user_major` VALUES (1703, 1080, 15);
+INSERT INTO `sys_user_major` VALUES (1704, 1081, 15);
+INSERT INTO `sys_user_major` VALUES (1705, 1082, 15);
+INSERT INTO `sys_user_major` VALUES (1706, 1083, 15);
+INSERT INTO `sys_user_major` VALUES (1707, 1084, 15);
+INSERT INTO `sys_user_major` VALUES (1708, 1085, 18);
+INSERT INTO `sys_user_major` VALUES (1709, 1086, 18);
+INSERT INTO `sys_user_major` VALUES (1710, 1087, 18);
+INSERT INTO `sys_user_major` VALUES (1711, 1088, 18);
+INSERT INTO `sys_user_major` VALUES (1712, 1089, 18);
+INSERT INTO `sys_user_major` VALUES (1713, 1090, 18);
+INSERT INTO `sys_user_major` VALUES (1714, 1091, 18);
+INSERT INTO `sys_user_major` VALUES (1715, 1092, 18);
+INSERT INTO `sys_user_major` VALUES (1716, 1093, 18);
+INSERT INTO `sys_user_major` VALUES (1717, 1094, 18);
+INSERT INTO `sys_user_major` VALUES (1718, 1095, 18);
+INSERT INTO `sys_user_major` VALUES (1719, 1096, 18);
+INSERT INTO `sys_user_major` VALUES (1720, 1097, 18);
+INSERT INTO `sys_user_major` VALUES (1721, 1098, 18);
+INSERT INTO `sys_user_major` VALUES (1722, 1099, 18);
+INSERT INTO `sys_user_major` VALUES (1723, 1100, 18);
+INSERT INTO `sys_user_major` VALUES (1724, 1101, 18);
+INSERT INTO `sys_user_major` VALUES (1725, 1102, 18);
+INSERT INTO `sys_user_major` VALUES (1726, 1103, 18);
+INSERT INTO `sys_user_major` VALUES (1727, 1104, 22);
+INSERT INTO `sys_user_major` VALUES (1728, 1105, 22);
+INSERT INTO `sys_user_major` VALUES (1729, 1106, 22);
+INSERT INTO `sys_user_major` VALUES (1730, 1107, 22);
+INSERT INTO `sys_user_major` VALUES (1731, 1108, 22);
+INSERT INTO `sys_user_major` VALUES (1732, 1109, 22);
+INSERT INTO `sys_user_major` VALUES (1733, 1110, 22);
+INSERT INTO `sys_user_major` VALUES (1734, 1111, 22);
+INSERT INTO `sys_user_major` VALUES (1735, 1112, 23);
+INSERT INTO `sys_user_major` VALUES (1736, 1113, 23);
+INSERT INTO `sys_user_major` VALUES (1737, 1114, 23);
+INSERT INTO `sys_user_major` VALUES (1738, 1115, 23);
+INSERT INTO `sys_user_major` VALUES (1739, 1116, 23);
+INSERT INTO `sys_user_major` VALUES (1740, 1117, 23);
+INSERT INTO `sys_user_major` VALUES (1741, 1118, 23);
+INSERT INTO `sys_user_major` VALUES (1742, 1119, 23);
+INSERT INTO `sys_user_major` VALUES (1743, 1120, 23);
+INSERT INTO `sys_user_major` VALUES (1744, 1121, 23);
+INSERT INTO `sys_user_major` VALUES (1745, 1122, 23);
+INSERT INTO `sys_user_major` VALUES (1746, 1123, 23);
+INSERT INTO `sys_user_major` VALUES (1747, 1124, 23);
+INSERT INTO `sys_user_major` VALUES (1748, 1125, 23);
+INSERT INTO `sys_user_major` VALUES (1749, 1126, 31);
+INSERT INTO `sys_user_major` VALUES (1750, 1127, 31);
+INSERT INTO `sys_user_major` VALUES (1751, 1128, 31);
+INSERT INTO `sys_user_major` VALUES (1752, 1129, 31);
+INSERT INTO `sys_user_major` VALUES (1753, 1130, 31);
+INSERT INTO `sys_user_major` VALUES (1754, 1131, 31);
+INSERT INTO `sys_user_major` VALUES (1755, 1132, 31);
+INSERT INTO `sys_user_major` VALUES (1756, 1133, 31);
+INSERT INTO `sys_user_major` VALUES (1757, 1134, 31);
+INSERT INTO `sys_user_major` VALUES (1758, 1135, 31);
+INSERT INTO `sys_user_major` VALUES (1759, 1136, 31);
+INSERT INTO `sys_user_major` VALUES (1760, 1137, 31);
+INSERT INTO `sys_user_major` VALUES (1761, 1138, 31);
+INSERT INTO `sys_user_major` VALUES (1762, 1139, 31);
+INSERT INTO `sys_user_major` VALUES (1763, 1140, 31);
+INSERT INTO `sys_user_major` VALUES (1764, 1141, 31);
+INSERT INTO `sys_user_major` VALUES (1765, 1142, 31);
+INSERT INTO `sys_user_major` VALUES (1766, 1143, 31);
+INSERT INTO `sys_user_major` VALUES (1767, 1144, 31);
+INSERT INTO `sys_user_major` VALUES (1768, 1145, 31);
+INSERT INTO `sys_user_major` VALUES (1769, 1146, 31);
+INSERT INTO `sys_user_major` VALUES (1770, 1147, 31);
+INSERT INTO `sys_user_major` VALUES (1771, 1148, 31);
+INSERT INTO `sys_user_major` VALUES (1772, 1149, 31);
+INSERT INTO `sys_user_major` VALUES (1773, 1150, 31);
+INSERT INTO `sys_user_major` VALUES (1774, 1151, 31);
+INSERT INTO `sys_user_major` VALUES (1775, 1152, 31);
+INSERT INTO `sys_user_major` VALUES (1776, 1153, 31);
+INSERT INTO `sys_user_major` VALUES (1777, 1154, 31);
+INSERT INTO `sys_user_major` VALUES (1778, 1155, 31);
+INSERT INTO `sys_user_major` VALUES (1779, 1156, 31);
+INSERT INTO `sys_user_major` VALUES (1780, 1157, 31);
+INSERT INTO `sys_user_major` VALUES (1781, 1158, 31);
+INSERT INTO `sys_user_major` VALUES (1782, 1159, 31);
+INSERT INTO `sys_user_major` VALUES (1783, 1160, 31);
+INSERT INTO `sys_user_major` VALUES (1784, 1161, 31);
+INSERT INTO `sys_user_major` VALUES (1785, 1162, 31);
+INSERT INTO `sys_user_major` VALUES (1786, 1163, 31);
+INSERT INTO `sys_user_major` VALUES (1787, 1164, 31);
+INSERT INTO `sys_user_major` VALUES (1788, 1165, 31);
+INSERT INTO `sys_user_major` VALUES (1789, 1166, 29);
+INSERT INTO `sys_user_major` VALUES (1790, 1167, 29);
+INSERT INTO `sys_user_major` VALUES (1791, 1168, 29);
+INSERT INTO `sys_user_major` VALUES (1792, 1169, 29);
+INSERT INTO `sys_user_major` VALUES (1793, 1170, 29);
+INSERT INTO `sys_user_major` VALUES (1794, 1171, 29);
+INSERT INTO `sys_user_major` VALUES (1795, 1172, 29);
+INSERT INTO `sys_user_major` VALUES (1796, 1173, 29);
+INSERT INTO `sys_user_major` VALUES (1797, 1174, 29);
+INSERT INTO `sys_user_major` VALUES (1798, 1175, 29);
+INSERT INTO `sys_user_major` VALUES (1799, 1176, 29);
+INSERT INTO `sys_user_major` VALUES (1800, 1177, 29);
+INSERT INTO `sys_user_major` VALUES (1801, 1178, 29);
+INSERT INTO `sys_user_major` VALUES (1802, 1179, 29);
+INSERT INTO `sys_user_major` VALUES (1803, 1180, 29);
+INSERT INTO `sys_user_major` VALUES (1804, 1181, 29);
+INSERT INTO `sys_user_major` VALUES (1805, 1182, 29);
+INSERT INTO `sys_user_major` VALUES (1806, 1183, 29);
+INSERT INTO `sys_user_major` VALUES (1807, 1184, 29);
+INSERT INTO `sys_user_major` VALUES (1808, 1185, 29);
+INSERT INTO `sys_user_major` VALUES (1809, 1186, 29);
+INSERT INTO `sys_user_major` VALUES (1810, 1187, 29);
+INSERT INTO `sys_user_major` VALUES (1811, 1188, 29);
+INSERT INTO `sys_user_major` VALUES (1812, 1189, 29);
+INSERT INTO `sys_user_major` VALUES (1813, 1190, 29);
+INSERT INTO `sys_user_major` VALUES (1814, 1191, 29);
+INSERT INTO `sys_user_major` VALUES (1815, 1192, 29);
+INSERT INTO `sys_user_major` VALUES (1816, 1193, 29);
+INSERT INTO `sys_user_major` VALUES (1817, 1194, 29);
+INSERT INTO `sys_user_major` VALUES (1818, 1195, 29);
+INSERT INTO `sys_user_major` VALUES (1819, 1196, 29);
+INSERT INTO `sys_user_major` VALUES (1820, 1197, 29);
+INSERT INTO `sys_user_major` VALUES (1821, 1198, 29);
+INSERT INTO `sys_user_major` VALUES (1822, 1199, 29);
+INSERT INTO `sys_user_major` VALUES (1823, 1200, 29);
+INSERT INTO `sys_user_major` VALUES (1824, 1201, 29);
+INSERT INTO `sys_user_major` VALUES (1825, 1202, 29);
+INSERT INTO `sys_user_major` VALUES (1826, 1203, 29);
+INSERT INTO `sys_user_major` VALUES (1827, 1204, 29);
+INSERT INTO `sys_user_major` VALUES (1828, 1205, 29);
+INSERT INTO `sys_user_major` VALUES (1829, 1206, 29);
+INSERT INTO `sys_user_major` VALUES (1830, 1207, 29);
+INSERT INTO `sys_user_major` VALUES (1831, 1208, 29);
+INSERT INTO `sys_user_major` VALUES (1832, 1209, 29);
+INSERT INTO `sys_user_major` VALUES (1833, 1210, 29);
+INSERT INTO `sys_user_major` VALUES (1834, 1211, 29);
+INSERT INTO `sys_user_major` VALUES (1835, 1212, 29);
+INSERT INTO `sys_user_major` VALUES (1836, 1213, 29);
+INSERT INTO `sys_user_major` VALUES (1837, 1214, 29);
+INSERT INTO `sys_user_major` VALUES (1838, 1215, 29);
+INSERT INTO `sys_user_major` VALUES (1839, 1216, 29);
+INSERT INTO `sys_user_major` VALUES (1840, 1217, 35);
+INSERT INTO `sys_user_major` VALUES (1841, 1218, 35);
+INSERT INTO `sys_user_major` VALUES (1842, 1219, 35);
+INSERT INTO `sys_user_major` VALUES (1843, 1220, 35);
+INSERT INTO `sys_user_major` VALUES (1844, 1221, 35);
+INSERT INTO `sys_user_major` VALUES (1845, 1222, 35);
+INSERT INTO `sys_user_major` VALUES (1846, 1223, 35);
+INSERT INTO `sys_user_major` VALUES (1847, 1224, 33);
+INSERT INTO `sys_user_major` VALUES (1848, 1225, 33);
+INSERT INTO `sys_user_major` VALUES (1850, 1227, 8);
+INSERT INTO `sys_user_major` VALUES (1851, 1227, 9);
+INSERT INTO `sys_user_major` VALUES (1852, 1227, 10);
+INSERT INTO `sys_user_major` VALUES (1853, 1227, 11);
+INSERT INTO `sys_user_major` VALUES (1855, 1228, 12);
+INSERT INTO `sys_user_major` VALUES (1856, 1228, 13);
+INSERT INTO `sys_user_major` VALUES (1857, 1228, 14);
+INSERT INTO `sys_user_major` VALUES (1858, 1228, 15);
+INSERT INTO `sys_user_major` VALUES (1859, 1228, 16);
+INSERT INTO `sys_user_major` VALUES (1860, 1228, 17);
+INSERT INTO `sys_user_major` VALUES (1861, 1229, 18);
+INSERT INTO `sys_user_major` VALUES (1862, 1229, 19);
+INSERT INTO `sys_user_major` VALUES (1863, 1229, 20);
+INSERT INTO `sys_user_major` VALUES (1864, 1229, 21);
+INSERT INTO `sys_user_major` VALUES (1865, 1229, 22);
+INSERT INTO `sys_user_major` VALUES (1866, 1230, 23);
+INSERT INTO `sys_user_major` VALUES (1867, 1230, 24);
+INSERT INTO `sys_user_major` VALUES (1868, 1230, 25);
+INSERT INTO `sys_user_major` VALUES (1869, 1230, 26);
+INSERT INTO `sys_user_major` VALUES (1870, 1230, 27);
+INSERT INTO `sys_user_major` VALUES (1871, 1230, 28);
+INSERT INTO `sys_user_major` VALUES (1872, 1231, 29);
+INSERT INTO `sys_user_major` VALUES (1873, 1231, 30);
+INSERT INTO `sys_user_major` VALUES (1874, 1231, 31);
+INSERT INTO `sys_user_major` VALUES (1875, 1231, 32);
+INSERT INTO `sys_user_major` VALUES (1876, 1232, 33);
+INSERT INTO `sys_user_major` VALUES (1877, 1232, 34);
+INSERT INTO `sys_user_major` VALUES (1878, 1232, 35);
+INSERT INTO `sys_user_major` VALUES (1879, 1232, 36);
+INSERT INTO `sys_user_major` VALUES (1880, 1232, 37);
+INSERT INTO `sys_user_major` VALUES (1881, 1233, 1);
+INSERT INTO `sys_user_major` VALUES (1883, 1226, 33);
+INSERT INTO `sys_user_major` VALUES (1885, 1234, 1);
+INSERT INTO `sys_user_major` VALUES (1886, 1269, 1);
+INSERT INTO `sys_user_major` VALUES (1887, 1270, 8);
+INSERT INTO `sys_user_major` VALUES (1888, 1270, 9);
+INSERT INTO `sys_user_major` VALUES (1889, 1270, 10);
+INSERT INTO `sys_user_major` VALUES (1890, 1270, 11);
+INSERT INTO `sys_user_major` VALUES (1892, 1270, 12);
+INSERT INTO `sys_user_major` VALUES (1893, 1270, 13);
+INSERT INTO `sys_user_major` VALUES (1894, 1270, 14);
+INSERT INTO `sys_user_major` VALUES (1895, 1270, 15);
+INSERT INTO `sys_user_major` VALUES (1896, 1270, 16);
+INSERT INTO `sys_user_major` VALUES (1897, 1270, 17);
+INSERT INTO `sys_user_major` VALUES (1898, 1270, 18);
+INSERT INTO `sys_user_major` VALUES (1899, 1270, 19);
+INSERT INTO `sys_user_major` VALUES (1900, 1270, 20);
+INSERT INTO `sys_user_major` VALUES (1901, 1270, 21);
+INSERT INTO `sys_user_major` VALUES (1902, 1270, 22);
+INSERT INTO `sys_user_major` VALUES (1903, 1271, 9);
+INSERT INTO `sys_user_major` VALUES (1904, 1272, 18);
+
+-- ----------------------------
+-- Table structure for sys_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role`  (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `role_id` bigint NOT NULL COMMENT '角色id',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `is_deleted` tinyint UNSIGNED NOT NULL DEFAULT 0 COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_role_id`(`role_id`) USING BTREE,
+  INDEX `idx_user_id`(`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1058 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user_role
+-- ----------------------------
+INSERT INTO `sys_user_role` VALUES (1, 1, 1, 0, '2023-04-03 19:22:49', '2023-04-03 19:22:49');
+INSERT INTO `sys_user_role` VALUES (730, 3, 948, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (731, 3, 949, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (732, 3, 950, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (733, 3, 951, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (734, 3, 952, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (735, 3, 953, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (736, 3, 954, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (737, 3, 955, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (738, 3, 956, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (739, 3, 957, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (740, 3, 958, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (741, 3, 959, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (742, 3, 960, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (743, 3, 961, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (744, 3, 962, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (745, 3, 963, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (746, 3, 964, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (747, 3, 965, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (748, 3, 966, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (749, 3, 967, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (750, 3, 968, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (751, 3, 969, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (752, 3, 970, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (753, 3, 971, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (754, 3, 972, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (755, 3, 973, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (756, 3, 974, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (757, 3, 975, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (758, 3, 976, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (759, 3, 977, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (760, 3, 978, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (761, 3, 979, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (762, 3, 980, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (763, 3, 981, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (764, 3, 982, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (765, 3, 983, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (766, 3, 984, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (767, 3, 985, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (768, 3, 986, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (769, 3, 987, 0, '2023-04-03 20:24:14', '2023-04-03 20:24:14');
+INSERT INTO `sys_user_role` VALUES (770, 3, 988, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (771, 3, 989, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (772, 3, 990, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (773, 3, 991, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (774, 3, 992, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (775, 3, 993, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (776, 3, 994, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (777, 3, 995, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (778, 3, 996, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (779, 3, 997, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (780, 3, 998, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (781, 3, 999, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (782, 3, 1000, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (783, 3, 1001, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (784, 3, 1002, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (785, 3, 1003, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (786, 3, 1004, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (787, 3, 1005, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (788, 3, 1006, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (789, 3, 1007, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (790, 3, 1008, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (791, 3, 1009, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (792, 3, 1010, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (793, 3, 1011, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (794, 3, 1012, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (795, 3, 1013, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (796, 3, 1014, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (797, 3, 1015, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (798, 3, 1016, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (799, 3, 1017, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (800, 3, 1018, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (801, 3, 1019, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (802, 3, 1020, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (803, 3, 1021, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (804, 3, 1022, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (805, 3, 1023, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (806, 3, 1024, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (807, 3, 1025, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (808, 3, 1026, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (809, 3, 1027, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (810, 3, 1028, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (811, 3, 1029, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (812, 3, 1030, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (813, 3, 1031, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (814, 3, 1032, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (815, 3, 1033, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (816, 3, 1034, 0, '2023-04-03 20:25:13', '2023-04-03 20:25:13');
+INSERT INTO `sys_user_role` VALUES (817, 3, 1035, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (818, 3, 1036, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (819, 3, 1037, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (820, 3, 1038, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (821, 3, 1039, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (822, 3, 1040, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (823, 3, 1041, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (824, 3, 1042, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (825, 3, 1043, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (826, 3, 1044, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (827, 3, 1045, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (828, 3, 1046, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (829, 3, 1047, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (830, 3, 1048, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (831, 3, 1049, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (832, 3, 1050, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (833, 3, 1051, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (834, 3, 1052, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (835, 3, 1053, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (836, 3, 1054, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (837, 3, 1055, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (838, 3, 1056, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (839, 3, 1057, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (840, 3, 1058, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (841, 3, 1059, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (842, 3, 1060, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (843, 3, 1061, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (844, 3, 1062, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (845, 3, 1063, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (846, 3, 1064, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (847, 3, 1065, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (848, 3, 1066, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (849, 3, 1067, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (850, 3, 1068, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (851, 3, 1069, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (852, 3, 1070, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (853, 3, 1071, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (854, 3, 1072, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (855, 3, 1073, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (856, 3, 1074, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (857, 3, 1075, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (858, 3, 1076, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (859, 3, 1077, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (860, 3, 1078, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (861, 3, 1079, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (862, 3, 1080, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (863, 3, 1081, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (864, 3, 1082, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (865, 3, 1083, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (866, 3, 1084, 0, '2023-04-03 20:54:40', '2023-04-03 20:54:40');
+INSERT INTO `sys_user_role` VALUES (867, 3, 1085, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (868, 3, 1086, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (869, 3, 1087, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (870, 3, 1088, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (871, 3, 1089, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (872, 3, 1090, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (873, 3, 1091, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (874, 3, 1092, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (875, 3, 1093, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (876, 3, 1094, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (877, 3, 1095, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (878, 3, 1096, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (879, 3, 1097, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (880, 3, 1098, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (881, 3, 1099, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (882, 3, 1100, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (883, 3, 1101, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (884, 3, 1102, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (885, 3, 1103, 0, '2023-04-03 20:59:05', '2023-04-03 20:59:05');
+INSERT INTO `sys_user_role` VALUES (886, 3, 1104, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (887, 3, 1105, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (888, 3, 1106, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (889, 3, 1107, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (890, 3, 1108, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (891, 3, 1109, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (892, 3, 1110, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (893, 3, 1111, 0, '2023-04-03 20:59:45', '2023-04-03 20:59:45');
+INSERT INTO `sys_user_role` VALUES (894, 3, 1112, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (895, 3, 1113, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (896, 3, 1114, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (897, 3, 1115, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (898, 3, 1116, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (899, 3, 1117, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (900, 3, 1118, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (901, 3, 1119, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (902, 3, 1120, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (903, 3, 1121, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (904, 3, 1122, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (905, 3, 1123, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (906, 3, 1124, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (907, 3, 1125, 0, '2023-04-03 21:00:28', '2023-04-03 21:00:28');
+INSERT INTO `sys_user_role` VALUES (908, 3, 1126, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (909, 3, 1127, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (910, 3, 1128, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (911, 3, 1129, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (912, 3, 1130, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (913, 3, 1131, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (914, 3, 1132, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (915, 3, 1133, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (916, 3, 1134, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (917, 3, 1135, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (918, 3, 1136, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (919, 3, 1137, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (920, 3, 1138, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (921, 3, 1139, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (922, 3, 1140, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (923, 3, 1141, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (924, 3, 1142, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (925, 3, 1143, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (926, 3, 1144, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (927, 3, 1145, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (928, 3, 1146, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (929, 3, 1147, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (930, 3, 1148, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (931, 3, 1149, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (932, 3, 1150, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (933, 3, 1151, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (934, 3, 1152, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (935, 3, 1153, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (936, 3, 1154, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (937, 3, 1155, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (938, 3, 1156, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (939, 3, 1157, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (940, 3, 1158, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (941, 3, 1159, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (942, 3, 1160, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (943, 3, 1161, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (944, 3, 1162, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (945, 3, 1163, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (946, 3, 1164, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (947, 3, 1165, 0, '2023-04-03 21:01:05', '2023-04-03 21:01:05');
+INSERT INTO `sys_user_role` VALUES (948, 3, 1166, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (949, 3, 1167, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (950, 3, 1168, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (951, 3, 1169, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (952, 3, 1170, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (953, 3, 1171, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (954, 3, 1172, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (955, 3, 1173, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (956, 3, 1174, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (957, 3, 1175, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (958, 3, 1176, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (959, 3, 1177, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (960, 3, 1178, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (961, 3, 1179, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (962, 3, 1180, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (963, 3, 1181, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (964, 3, 1182, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (965, 3, 1183, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (966, 3, 1184, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (967, 3, 1185, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (968, 3, 1186, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (969, 3, 1187, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (970, 3, 1188, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (971, 3, 1189, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (972, 3, 1190, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (973, 3, 1191, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (974, 3, 1192, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (975, 3, 1193, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (976, 3, 1194, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (977, 3, 1195, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (978, 3, 1196, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (979, 3, 1197, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (980, 3, 1198, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (981, 3, 1199, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (982, 3, 1200, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (983, 3, 1201, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (984, 3, 1202, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (985, 3, 1203, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (986, 3, 1204, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (987, 3, 1205, 0, '2023-04-03 21:01:31', '2023-04-03 21:01:31');
+INSERT INTO `sys_user_role` VALUES (988, 3, 1206, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (989, 3, 1207, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (990, 3, 1208, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (991, 3, 1209, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (992, 3, 1210, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (993, 3, 1211, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (994, 3, 1212, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (995, 3, 1213, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (996, 3, 1214, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (997, 3, 1215, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (998, 3, 1216, 0, '2023-04-03 21:02:29', '2023-04-03 21:02:29');
+INSERT INTO `sys_user_role` VALUES (999, 3, 1217, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user_role` VALUES (1000, 3, 1218, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user_role` VALUES (1001, 3, 1219, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user_role` VALUES (1002, 3, 1220, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user_role` VALUES (1003, 3, 1221, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user_role` VALUES (1004, 3, 1222, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user_role` VALUES (1005, 3, 1223, 0, '2023-04-03 21:03:05', '2023-04-03 21:03:05');
+INSERT INTO `sys_user_role` VALUES (1006, 3, 1224, 0, '2023-04-03 21:04:08', '2023-04-03 21:04:08');
+INSERT INTO `sys_user_role` VALUES (1007, 3, 1225, 0, '2023-04-03 21:04:08', '2023-04-03 21:04:08');
+INSERT INTO `sys_user_role` VALUES (1008, 3, 1226, 0, '2023-04-03 21:04:08', '2023-04-03 21:04:08');
+INSERT INTO `sys_user_role` VALUES (1009, 2, 1227, 0, '2023-04-03 22:01:55', '2023-04-03 22:01:55');
+INSERT INTO `sys_user_role` VALUES (1010, 2, 1228, 0, '2023-04-07 17:13:34', '2023-04-07 17:13:34');
+INSERT INTO `sys_user_role` VALUES (1011, 2, 1229, 0, '2023-04-07 17:14:14', '2023-04-07 17:14:14');
+INSERT INTO `sys_user_role` VALUES (1012, 2, 1230, 0, '2023-04-07 17:14:42', '2023-04-07 17:14:42');
+INSERT INTO `sys_user_role` VALUES (1013, 2, 1231, 0, '2023-04-07 17:15:14', '2023-04-07 17:15:14');
+INSERT INTO `sys_user_role` VALUES (1014, 2, 1232, 0, '2023-04-07 17:16:01', '2023-04-07 17:16:01');
+INSERT INTO `sys_user_role` VALUES (1015, 1, 1233, 0, '2023-04-07 17:16:41', '2023-04-07 17:16:41');
+INSERT INTO `sys_user_role` VALUES (1016, 1, 1234, 1, '2023-04-07 17:17:11', '2023-04-07 17:17:11');
+INSERT INTO `sys_user_role` VALUES (1017, 4, 1236, 0, '2023-04-09 17:59:18', '2023-04-09 17:59:18');
+INSERT INTO `sys_user_role` VALUES (1018, 1, 1234, 1, '2023-04-09 18:42:36', '2023-04-09 18:42:36');
+INSERT INTO `sys_user_role` VALUES (1019, 4, 1237, 0, '2023-04-09 18:45:01', '2023-04-09 18:45:01');
+INSERT INTO `sys_user_role` VALUES (1020, 4, 1238, 0, '2023-04-09 18:45:57', '2023-04-09 18:45:57');
+INSERT INTO `sys_user_role` VALUES (1021, 4, 1239, 0, '2023-04-09 22:04:56', '2023-04-09 22:04:56');
+INSERT INTO `sys_user_role` VALUES (1022, 4, 1240, 0, '2023-04-09 22:20:13', '2023-04-09 22:20:13');
+INSERT INTO `sys_user_role` VALUES (1023, 4, 1241, 0, '2023-04-10 16:12:54', '2023-04-10 16:12:54');
+INSERT INTO `sys_user_role` VALUES (1024, 4, 1242, 0, '2023-04-10 16:13:49', '2023-04-10 16:13:49');
+INSERT INTO `sys_user_role` VALUES (1025, 4, 1243, 0, '2023-04-10 16:14:15', '2023-04-10 16:14:15');
+INSERT INTO `sys_user_role` VALUES (1026, 4, 1244, 0, '2023-04-10 16:15:08', '2023-04-10 16:15:08');
+INSERT INTO `sys_user_role` VALUES (1027, 4, 1245, 0, '2023-04-10 16:15:52', '2023-04-10 16:15:52');
+INSERT INTO `sys_user_role` VALUES (1028, 4, 1246, 0, '2023-04-10 16:16:57', '2023-04-10 16:16:57');
+INSERT INTO `sys_user_role` VALUES (1029, 4, 1247, 0, '2023-04-10 16:18:32', '2023-04-10 16:18:32');
+INSERT INTO `sys_user_role` VALUES (1030, 4, 1248, 0, '2023-04-10 16:19:16', '2023-04-10 16:19:16');
+INSERT INTO `sys_user_role` VALUES (1031, 4, 1249, 0, '2023-04-10 16:20:12', '2023-04-10 16:20:12');
+INSERT INTO `sys_user_role` VALUES (1032, 4, 1250, 0, '2023-04-10 16:20:43', '2023-04-10 16:20:43');
+INSERT INTO `sys_user_role` VALUES (1033, 4, 1251, 0, '2023-04-10 16:21:35', '2023-04-10 16:21:35');
+INSERT INTO `sys_user_role` VALUES (1035, 5, 1252, 0, '2023-04-10 20:01:40', '2023-04-10 20:01:40');
+INSERT INTO `sys_user_role` VALUES (1036, 5, 1253, 0, '2023-04-10 20:02:42', '2023-04-10 20:02:42');
+INSERT INTO `sys_user_role` VALUES (1037, 5, 1254, 0, '2023-04-10 20:06:25', '2023-04-10 20:06:25');
+INSERT INTO `sys_user_role` VALUES (1038, 5, 1255, 0, '2023-04-11 13:56:13', '2023-04-11 13:56:13');
+INSERT INTO `sys_user_role` VALUES (1039, 1, 1234, 0, '2023-04-11 15:09:10', '2023-04-11 15:09:10');
+INSERT INTO `sys_user_role` VALUES (1040, 5, 1256, 0, '2023-04-11 20:42:38', '2023-04-11 20:42:38');
+INSERT INTO `sys_user_role` VALUES (1041, 5, 1257, 0, '2023-04-11 22:02:14', '2023-04-11 22:02:14');
+INSERT INTO `sys_user_role` VALUES (1042, 5, 1258, 0, '2023-04-11 22:07:42', '2023-04-11 22:07:42');
+INSERT INTO `sys_user_role` VALUES (1043, 5, 1259, 0, '2023-04-11 22:11:00', '2023-04-11 22:11:00');
+INSERT INTO `sys_user_role` VALUES (1044, 5, 1260, 0, '2023-04-11 22:45:08', '2023-04-11 22:45:08');
+INSERT INTO `sys_user_role` VALUES (1045, 5, 1261, 0, '2023-04-11 22:46:05', '2023-04-11 22:46:05');
+INSERT INTO `sys_user_role` VALUES (1046, 5, 1262, 0, '2023-04-11 22:46:54', '2023-04-11 22:46:54');
+INSERT INTO `sys_user_role` VALUES (1047, 5, 1263, 0, '2023-04-11 23:28:18', '2023-04-11 23:28:18');
+INSERT INTO `sys_user_role` VALUES (1048, 5, 1264, 0, '2023-04-11 23:28:50', '2023-04-11 23:28:50');
+INSERT INTO `sys_user_role` VALUES (1049, 5, 1265, 0, '2023-04-12 11:21:36', '2023-04-12 11:21:36');
+INSERT INTO `sys_user_role` VALUES (1050, 5, 1266, 0, '2023-04-12 13:14:06', '2023-04-12 13:14:06');
+INSERT INTO `sys_user_role` VALUES (1051, 5, 1267, 0, '2023-04-12 13:43:07', '2023-04-12 13:43:07');
+INSERT INTO `sys_user_role` VALUES (1052, 5, 1268, 0, '2023-04-12 14:25:41', '2023-04-12 14:25:41');
+INSERT INTO `sys_user_role` VALUES (1053, 1, 1269, 0, '2023-04-29 10:43:55', '2023-04-29 10:43:55');
+INSERT INTO `sys_user_role` VALUES (1054, 2, 1270, 0, '2023-04-29 10:48:04', '2023-04-29 10:48:04');
+INSERT INTO `sys_user_role` VALUES (1055, 3, 1271, 0, '2023-04-29 10:48:37', '2023-04-29 10:48:37');
+INSERT INTO `sys_user_role` VALUES (1056, 3, 1272, 0, '2023-04-29 10:48:58', '2023-04-29 10:48:58');
+INSERT INTO `sys_user_role` VALUES (1057, 4, 1273, 0, '2023-04-29 10:49:36', '2023-04-29 10:49:36');
+
+SET FOREIGN_KEY_CHECKS = 1;
